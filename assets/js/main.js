@@ -9,7 +9,7 @@
   document.documentElement.classList.add('js');
 
   /* ---------------- Header scroll state ---------------- */
-  var header = document.querySelector('.header-wrapper') || document.querySelector('.site-header');
+  var header = document.querySelector('.header-wrapper');
   function onScroll() {
     if (!header) return;
     if (window.scrollY > 40) header.classList.add('is-solid');
@@ -131,31 +131,6 @@
     clone.setAttribute('aria-hidden', 'true');
     track.parentNode.appendChild(clone);
     track.dataset.cloned = 'true';
-  });
-
-  /* ---------------- Swiper carousels (loaded via CDN) ---------------- */
-  document.querySelectorAll('.js-swiper').forEach(function (el) {
-    if (typeof Swiper === 'undefined') return;
-    var countEl = el.closest('.carousel-block') ? el.closest('.carousel-block').querySelector('.current') : null;
-    var swiper = new Swiper(el, {
-      slidesPerView: 1.05,
-      spaceBetween: 24,
-      speed: 500,
-      breakpoints: {
-        640: { slidesPerView: 1.6 },
-        900: { slidesPerView: 2.3 },
-        1200: { slidesPerView: 3 }
-      },
-      navigation: {
-        nextEl: el.closest('.carousel-block').querySelector('.carousel-next'),
-        prevEl: el.closest('.carousel-block').querySelector('.carousel-prev')
-      },
-      on: {
-        slideChange: function (s) {
-          if (countEl) countEl.textContent = String(s.realIndex + 1).padStart(2, '0');
-        }
-      }
-    });
   });
 
   /* ---------------- Contact form ---------------- */
