@@ -9,7 +9,7 @@
   document.documentElement.classList.add('js');
 
   /* ---------------- Header scroll state ---------------- */
-  var header = document.querySelector('.site-header');
+  var header = document.querySelector('.header-wrapper') || document.querySelector('.site-header');
   function onScroll() {
     if (!header) return;
     if (window.scrollY > 40) header.classList.add('is-solid');
