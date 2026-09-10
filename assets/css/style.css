@@ -31,7 +31,7 @@
   --font-body: 'Inter', 'Segoe UI', sans-serif;
 
   /* Rhythm */
-  --section-pad: clamp(64px, 9vw, 120px);
+  --section-pad: clamp(80px, 10vw, 140px);
   --container-w: 1280px;
   --radius-sm: 12px;
   --radius-md: 18px;
@@ -92,7 +92,7 @@ section { padding: var(--section-pad) 0; position: relative; }
 .section-alt { background: var(--off-white); }
 .section-tight { padding: clamp(48px, 6vw, 72px) 0; }
 
-.grid { display: grid; gap: 24px; }
+.grid { display: grid; gap: 28px; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -522,10 +522,11 @@ html:not(.js) .marquee-track { animation: none; }
 
 /* ---------- Forms ---------- */
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .form-field.full { grid-column: 1 / -1; }
 .form-field label { font-size: 0.875rem; font-weight: 600; color: var(--navy-950); }
 .form-field input, .form-field select, .form-field textarea {
+  width: 100%; min-width: 0; max-width: 100%;
   padding: 14px 16px; border: 1.5px solid var(--border-light); border-radius: var(--radius-sm);
   font-size: 0.9375rem; color: var(--navy-950); background: var(--white);
   transition: border-color 0.2s;
@@ -813,7 +814,7 @@ html:not(.js) .gallery-zoom { display: none; }
   background: var(--navy-900);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
-  padding: 24px;
+  padding: 30px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -862,7 +863,7 @@ html:not(.js) .gallery-zoom { display: none; }
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-top: 3px solid var(--brand-blue);
   border-radius: var(--radius-sm);
-  padding: 32px 28px;
+  padding: 38px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -904,7 +905,7 @@ html:not(.js) .gallery-zoom { display: none; }
 .optron-service-box ul {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 12px;
   margin-bottom: 24px;
   font-size: 0.8125rem;
   color: var(--slate-400);
