@@ -274,6 +274,41 @@ button:hover .hover-arrow .arrow-2 {
   transform: scaleX(1);
 }
 
+/* Desktop nav hover dropdown (Solutions mega-panel) */
+.nav-drop > a { display: inline-flex; align-items: center; gap: 6px; }
+.nav-drop > a .chev { width: 10px; height: 10px; flex-shrink: 0; transform: rotate(90deg); transition: transform 0.25s var(--ease); }
+.nav-drop:hover > a .chev, .nav-drop:focus-within > a .chev { transform: rotate(270deg); }
+.nav-drop-panel {
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: min(880px, 92vw);
+  background: var(--navy-900);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-premium);
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  z-index: 50;
+}
+.nav-drop:hover .nav-drop-panel, .nav-drop:focus-within .nav-drop-panel {
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0);
+}
+.nav-drop-eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--optron-orange); margin-bottom: 18px; }
+.nav-drop-eyebrow span { color: rgba(255,255,255,0.5); font-weight: 500; text-transform: none; letter-spacing: 0; }
+.nav-drop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nav-drop-tile { display: block; border-radius: var(--radius-sm); overflow: hidden; background: var(--navy-850); border: 1px solid rgba(255,255,255,0.06); transition: transform 0.25s var(--ease), border-color 0.25s var(--ease); }
+.nav-drop-tile:hover { transform: translateY(-3px); border-color: rgba(251,77,23,0.35); }
+.nav-drop-tile .tile-media { aspect-ratio: 16/10; overflow: hidden; }
+.nav-drop-tile .tile-media img { width: 100%; height: 100%; object-fit: cover; }
+.nav-drop-tile.icon-only .tile-media { display: flex; align-items: center; justify-content: center; background: var(--navy-800); color: var(--optron-orange); }
+.nav-drop-tile .tile-label { display: flex; align-items: center; justify-content: space-between; padding: 11px 13px; font-size: 0.8125rem; font-weight: 600; color: var(--white); }
+.nav-drop-tile .tile-label svg { width: 12px; height: 12px; color: var(--optron-orange); transition: transform 0.25s var(--ease); flex-shrink: 0; }
+.nav-drop-tile:hover .tile-label svg { transform: translateX(3px); }
+
 .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--white); z-index: 20; }
 .logo .mark { width: 38px; height: 38px; flex-shrink: 0; }
 .logo .word span { color: var(--brand-blue-light); }
@@ -1107,6 +1142,33 @@ html:not(.js) .gallery-zoom { display: none; }
 .hero-call-badge .call-text .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.07em; }
 .hero-call-badge .call-text a { font-weight: 700; color: var(--white); font-size: 0.9375rem; transition: color 0.2s var(--ease); }
 .hero-call-badge .call-text a:hover { color: var(--optron-orange); }
+
+/* ---------- Full-Bleed Centered Hero ---------- */
+.hero-full {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--white);
+  text-align: center;
+  padding: 160px 24px 100px;
+  background: var(--navy-950);
+}
+.hero-full .hero-full-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-full .hero-full-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-full .hero-full-scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(6,10,17,0.8) 0%, rgba(6,10,17,0.82) 45%, rgba(6,10,17,0.95) 100%);
+}
+.hero-full .hero-full-content { position: relative; z-index: 2; max-width: 880px; margin: 0 auto; }
+.hero-full .optron-pill { margin: 0 auto 26px; }
+.hero-full h1 { color: var(--white); font-size: clamp(2.25rem, 4.6vw, 3.5rem); letter-spacing: -0.02em; line-height: 1.15; text-shadow: 0 4px 24px rgba(0,0,0,0.55); }
+.hero-full .text-accent { color: var(--optron-orange); }
+.hero-full .hero-sub-full { max-width: 640px; margin: 22px auto 36px; font-size: 1.0625rem; line-height: 1.7; color: rgba(255,255,255,0.82); }
+.hero-full .btn-group { justify-content: center; }
 
 /* ---------- Feature Row (3-card alternating variant, Optron/Biztop hybrid) ---------- */
 .feature-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
