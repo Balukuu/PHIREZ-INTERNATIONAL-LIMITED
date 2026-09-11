@@ -39,7 +39,7 @@
   "logo": "https://phirez.com/assets/images/favicon.svg",
   "image": "https://phirez.com/assets/images/og-image.png",
   "telephone": "+256783549770",
-  "email": "info@phirez.com",
+  "email": "info@phirez.ug",
   "foundingDate": "2011",
   "address": {
     "@type": "PostalAddress",
@@ -94,6 +94,7 @@
 <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 21v-7.5h2.5l.5-3H14V8.4c0-.9.2-1.5 1.5-1.5H17V4.2C16.7 4.2 15.7 4 14.6 4 12.3 4 10.7 5.4 10.7 8v2.5H8.2v3h2.5V21h3.3z" fill="currentColor"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
 <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8.3" r="1.1" fill="currentColor"/><path d="M8 11v6.5M12 11v6.5M12 13.5c0-1.7 1.2-2.5 2.5-2.5s2.5.8 2.5 2.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="19" r="1.4" fill="currentColor"/><path d="M4 19a8 8 0 0116 0M7 19a5 5 0 0110 0M12 19V6M8 9l4-3 4 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs>
 </svg>
 
@@ -101,23 +102,6 @@
 
 <!-- HEADER WRAPPER (Top Bar + Main Navigation) -->
 <div class="header-wrapper">
-  <!-- Top Utility Bar (Optron Style) -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="top-bar-links">
-        <span class="top-bar-item"><svg><use href="#i-pin"/></svg><span>Plot 11 Archer Road, Kampala, Uganda</span></span>
-        <a href="tel:+256783549770" class="top-bar-item"><svg><use href="#i-phone"/></svg><span>+256 783 549 770</span></a>
-        <a href="mailto:info@phirez.com" class="top-bar-item top-bar-hide-mobile"><svg><use href="#i-mail"/></svg><span>info@phirez.com</span></a>
-        <span class="top-bar-item top-bar-hide-mobile" style="color:var(--optron-orange);"><svg style="color:var(--optron-orange);"><use href="#i-shield"/></svg><span>Trimble &amp; Esri Authorised Partner</span></span>
-      </div>
-      <div class="top-bar-social">
-        <a href="#" aria-label="LinkedIn"><svg width="14" height="14"><use href="#i-linkedin"/></svg></a>
-        <a href="#" aria-label="X (Twitter)"><svg width="13" height="13"><use href="#i-x"/></svg></a>
-        <a href="#" aria-label="Facebook"><svg width="14" height="14"><use href="#i-fb"/></svg></a>
-      </div>
-    </div>
-  </div>
-
   <!-- Primary Site Header -->
   <header class="site-header">
     <div class="container">
@@ -133,7 +117,7 @@
       <!-- Optron Desktop Nav Links -->
       <nav class="desktop-nav" aria-label="Primary navigation">
         <div class="nav-drop">
-          <a href="solutions.html">Solutions &amp; Systems <svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
+          <a href="solutions.html">Solutions <svg class="chev" viewBox="0 0 24 24"><use href="#i-chevron"/></svg></a>
           <div class="nav-drop-panel">
             <div class="nav-drop-eyebrow">Partner Brands <span>&mdash; authorised technology partners</span></div>
             <div class="nav-drop-grid">
@@ -176,11 +160,11 @@
             </div>
           </div>
         </div>
-        <a href="solutions.html#services-support">Services &amp; Support</a>
+        <a href="solutions.html#services-support">Services</a>
         <a href="industries.html">Industries</a>
         <a href="projects.html">Case Studies</a>
-        <a href="gallery.html">Field Gallery</a>
-        <a href="training.html">Training Academy</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="training.html">Training</a>
         <a href="company.html">Company</a>
       </nav>
 
@@ -315,68 +299,65 @@
 
 <main id="main">
 
-  <!-- HERO SECTION (Full-Bleed Centered Layout) -->
-  <section class="hero-full">
-    <div class="hero-full-bg">
-      <img src="assets/images/gallery/gnss-training-01.jpg" alt="Phirez trainers conducting field GNSS training overlooking Kampala." loading="eager">
-    </div>
-    <div class="hero-full-scrim"></div>
-    <div class="hero-full-content" data-aos>
-      <span class="optron-pill orange">
-        <span class="dot"></span>TRIMBLE &amp; ESRI AUTHORISED PARTNER
-      </span>
-      <h1>Precision Geospatial <span class="text-accent">&amp; Advanced IT</span> Solutions For <span class="text-accent">Africa's Built Environment</span></h1>
-      <p class="hero-sub-full">Phirez International Limited empowers surveying, mining, construction, utilities, and government organizations with industry-standard Trimble GNSS positioning, DJI Enterprise drone LiDAR, and certified calibration support across Uganda and East Africa.</p>
-      <div class="btn-group">
-        <a href="contact.html" class="btn btn-orange">
-          <span>Talk To A Specialist</span>
-          <span class="hover-arrow" aria-hidden="true">
-            <svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
-            <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
+  <!-- HERO SECTION (Agrone-style rounded frame + floating badge/cards) -->
+  <section class="hero-agro">
+    <div class="hero-agro-frame">
+      <img src="assets/images/gallery/0fa4feff3ac8fbbb9f6e7b3404178fb6.jpg" alt="DJI Enterprise drone controller staged in the field before a mapping flight." loading="eager">
+      <div class="hero-agro-scrim"></div>
+      <div class="container">
+        <div class="hero-agro-content" data-aos>
+          <span class="optron-pill orange">
+            <span class="dot"></span>TRIMBLE &amp; ESRI AUTHORISED PARTNER
           </span>
-        </a>
-        <a href="solutions.html#partners" class="btn btn-outline-white">
-          <span>View Our Partners</span>
-          <span class="hover-arrow" aria-hidden="true">
-            <svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
-            <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
-          </span>
-        </a>
+          <h1>Precision Geospatial <span class="text-accent">&amp; Advanced IT</span> Solutions For <span class="text-accent">Africa's Built Environment</span></h1>
+          <p>Phirez International Limited empowers surveying, mining, construction, utilities, and government organizations with industry-standard Trimble GNSS positioning, DJI Enterprise drone LiDAR, and certified calibration support across Uganda and East Africa.</p>
+          <div class="btn-group">
+            <a href="contact.html" class="btn btn-orange">
+              <span>Talk To A Specialist</span>
+              <span class="hover-arrow" aria-hidden="true">
+                <svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
+                <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
+              </span>
+            </a>
+            <a href="solutions.html#partners" class="btn btn-outline-white">
+              <span>View Our Partners</span>
+              <span class="hover-arrow" aria-hidden="true">
+                <svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
+                <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-agro-badge">
+          <span class="stat-num">15+</span>
+          <span class="stat-cap">Years in Geospatial &amp; IT Solutions</span>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- LOGO MARQUEE / TRUST STRIP -->
-  <section class="section-tight" id="qa-marquee">
-    <div class="container">
-      <p class="label text-muted" style="text-align:center; margin-bottom:24px; font-size:0.8125rem; letter-spacing:0.05em; text-transform:uppercase;">Trusted By Industry Leaders, Government Ministries &amp; International Agencies</p>
+    <div class="hero-agro-cards">
+      <a class="hero-agro-card" href="solutions.html#gnss-positioning">
+        <span class="thumb"><img src="assets/images/vendor-equipment/trimble-gnss-total-station-01.jpg" alt="" loading="lazy"></span>
+        <span class="info">
+          <h4>Trimble R12i GNSS</h4>
+          <p>Millimetre-accurate RTK positioning</p>
+          <span class="cta-outline">View Details</span>
+        </span>
+        <span class="go"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="hero-agro-card reverse" href="solutions.html#drones-aerial">
+        <span class="thumb"><img src="assets/images/vendor-equipment/dji-drone-flight-01.jpg" alt="" loading="lazy"></span>
+        <span class="info">
+          <h4>DJI Matrice 350 RTK</h4>
+          <p>Enterprise drone LiDAR mapping</p>
+          <span class="cta-fill">Explore More<span class="arrow-circle"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span></span>
+        </span>
+      </a>
     </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span class="marquee-item">World Food Programme</span>
-        <span class="marquee-item">UN OCHA</span>
-        <span class="marquee-item">MTN Uganda</span>
-        <span class="marquee-item">Wildlife Conservation Society</span>
-        <span class="marquee-item">UNRA (Uganda National Roads Authority)</span>
-        <span class="marquee-item">National Forestry Authority</span>
-        <span class="marquee-item">USAID</span>
-        <span class="marquee-item">UNDP</span>
-        <span class="marquee-item">IOM</span>
-        <span class="marquee-item">UNICEF</span>
-        <span class="marquee-item">UETCL (Uganda Electricity Transmission)</span>
-        <span class="marquee-item">AMREF Health Africa</span>
-        <span class="marquee-item">WWF</span>
-        <span class="marquee-item">NEMA</span>
-        <span class="marquee-item">UBOS</span>
-        <span class="marquee-item">Umeme</span>
-        <span class="marquee-item">KCCA</span>
-        <span class="marquee-item">Uganda Wildlife Authority</span>
-      </div>
-    </div>
+    <div class="hero-agro-spacer"></div>
   </section>
 
   <!-- HARDWARE & SOFTWARE ECOSYSTEM (Optron Hallmark Section) -->
-  <section class="section-dark" style="background: #090f18;">
+  <section class="section-dark" style="background: #0A160F;">
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:44px;" data-aos>
         <div style="max-width:700px;">
@@ -1018,9 +999,9 @@
   </section>
 
   <!-- FINAL CTA BAND (Optron High Energy Style) -->
-  <section class="section-dark" style="background: #090f18; padding: 90px 0;">
+  <section class="section-dark" style="background: #0A160F; padding: 90px 0;">
     <div class="container">
-      <div class="cta-band" style="background: linear-gradient(135deg, #162436 0%, #0d1520 100%); border: 1px solid rgba(251, 77, 23, 0.4); border-radius: var(--radius-lg); padding: 60px 48px;" data-aos>
+      <div class="cta-band" style="background: linear-gradient(135deg, #1c3527 0%, #101d15 100%); border: 1px solid rgba(143, 209, 79, 0.4); border-radius: var(--radius-lg); padding: 60px 48px;" data-aos>
         <div style="max-width: 720px;">
           <span class="optron-pill orange" style="margin-bottom: 16px;"><span class="dot"></span>START YOUR PROJECT TODAY</span>
           <h2 style="font-size: clamp(1.75rem, 3.2vw, 2.5rem); margin-bottom: 16px;">Ready To Equip Your Team With <span style="color:var(--optron-orange);">Industry-Leading Precision</span>?</h2>
@@ -1102,7 +1083,7 @@
         <ul>
           <li class="contact-line"><svg width="16" height="16"><use href="#i-pin"/></svg><span>2nd Floor, Unicalo House, Plot 11, Archer Road, P.O. Box 111999, Kampala, Uganda</span></li>
           <li class="contact-line"><svg width="16" height="16"><use href="#i-phone"/></svg><span><a href="tel:+256783549770">+256 783 549 770</a></span></li>
-          <li class="contact-line"><svg width="16" height="16"><use href="#i-mail"/></svg><span><a href="mailto:info@phirez.com">info@phirez.com</a></span></li>
+          <li class="contact-line"><svg width="16" height="16"><use href="#i-mail"/></svg><span><a href="mailto:info@phirez.ug">info@phirez.ug</a></span></li>
           <li class="contact-line"><svg width="16" height="16"><use href="#i-mail"/></svg><span><a href="mailto:kamugishacosta@gmail.com">kamugishacosta@gmail.com</a></span></li>
           <li class="contact-line"><svg width="16" height="16"><use href="#i-clock"/></svg><span>Mon - Fri: 8:00 AM - 5:00 PM EAT</span></li>
         </ul>
@@ -1126,6 +1107,7 @@
       </div>
     </div>
   </div>
+  <div class="footer-wordmark" aria-hidden="true">Phirez</div>
 </footer>
 
 <script src="assets/js/main.js"></script>

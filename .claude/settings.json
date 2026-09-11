@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/run/media/ba-luku/AI/Blactec Projects/PHIREZ INTERNATIONAL LIMITED\" && diff /tmp/style.css.bak assets/css/style.css | tail -30 *)",
+      "Read(//tmp/**)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=1600,1400 --screenshot=progress1_desktop.png http://localhost:8123/index.html)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=1600,1200 --screenshot=footer_check.png \"http://localhost:8123/solutions.html\")",
+      "Bash(python3 cdp.py 9222 http://localhost:8123/solutions.html 1600 1200 \"\" /dev/null)",
+      "Bash(python3 cdp.py 9223 http://localhost:8123/solutions.html 1600 1000 \"\" footer_check.png 99999)",
+      "Bash(python3 cdp.py 9223 http://localhost:8123/solutions.html 1600 1000 \"\" footer_check2.png 8800)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=1600,1200 --screenshot=hero_check1.png http://localhost:8123/index.html)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=390,1400 --screenshot=hero_mobile1.png http://localhost:8123/index.html)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=390,1600 --screenshot=qa/solutions_mobile.png http://localhost:8123/solutions.html)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=390,1600 --screenshot=qa/gallery_mobile.png http://localhost:8123/gallery.html)",
+      "Bash(python3 cdp.py 9223 http://localhost:8123/index.html 390 844 .menu-trigger qa/mobile_menu_open.png)",
+      "Bash(python3 - industries.html '__TRACKED_VAR__ *)",
+      "Bash(python3 -)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --disk-cache-dir=/dev/null --window-size=390,1000 --screenshot=qa/index_mobile_v2.png http://localhost:8123/index.html)",
+      "Bash(lsof -ti:8123 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(lsof -ti:9223 -sTCP:LISTEN)",
+      "Bash(pkill -f \"google-chrome.*remote-debugging-port\")",
+      "Bash(lsof -i:8123 -i:9223)",
+      "Bash(python3 -c ' *)",
+      "Bash(read f *)",
+      "Bash(sort -t'\\(' -k2 -rn)",
+      "Bash(awk '{print}')"
+    ]
+  }
+}

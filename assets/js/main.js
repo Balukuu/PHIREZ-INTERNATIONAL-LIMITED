@@ -185,6 +185,14 @@
     });
   }
 
+  /* ---------------- Hero floating cards that pre-filter the gallery ---------------- */
+  document.querySelectorAll('.hero-agro-card[data-filter]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var btn = document.querySelector('.filter-btn[data-filter="' + card.dataset.filter + '"]');
+      if (btn) btn.click();
+    });
+  });
+
   /* ---------------- Gallery filters + lightbox ---------------- */
   var galleryGrid = document.querySelector('.gallery-grid');
   if (galleryGrid) {
