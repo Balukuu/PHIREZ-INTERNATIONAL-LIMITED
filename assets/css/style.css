@@ -102,29 +102,6 @@ section { padding: var(--section-pad) 0; position: relative; }
 .text-accent { color: var(--brand-blue); }
 .section-dark .text-accent, .on-dark .text-accent { color: var(--brand-blue-light); }
 
-/* ---------- Eyebrow / pill badge ---------- */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px 7px 12px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-pill);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--navy-950);
-  margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(19, 36, 27,0.05);
-}
-.section-dark .eyebrow, .on-dark .eyebrow { border-color: var(--border-dark); color: var(--white); box-shadow: none; }
-.eyebrow .dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--brand-blue);
-  flex-shrink: 0;
-}
-
 /* ---------- Buttons & Arrow Micro-Interactions (Optron Signature) ---------- */
 .btn {
   display: inline-flex;
@@ -799,7 +776,6 @@ html:not(.js) .gallery-zoom { display: none; }
 /* .hero / .page-hero sit on a navy background but aren't .section-dark —
    extend the dark-mode text/component colors to them so content is legible. */
 .hero h1, .hero h2, .hero h3, .page-hero h1, .page-hero h2, .page-hero h3 { color: var(--white); }
-.hero .eyebrow, .page-hero .eyebrow { border-color: var(--border-dark); color: var(--white); }
 .hero .text-muted, .page-hero .text-muted { color: rgba(255,255,255,0.6); }
 .hero .text-accent, .page-hero .text-accent { color: var(--brand-blue-light); }
 .hero .btn-outline, .page-hero .btn-outline { border-color: var(--border-dark); color: var(--white); }
@@ -829,33 +805,6 @@ html:not(.js) .gallery-zoom { display: none; }
 .section-dark .optron-link:hover, .on-dark .optron-link:hover {
   color: var(--optron-orange);
 }
-
-/* Optron Pill Badges */
-.optron-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 16px;
-  border-radius: 80px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-}
-.optron-pill.orange {
-  border-color: rgba(143, 209, 79, 0.4);
-  color: var(--optron-orange);
-  background: rgba(143, 209, 79, 0.08);
-}
-.optron-pill.blue {
-  border-color: rgba(63, 143, 82, 0.4);
-  color: var(--brand-blue-light);
-  background: rgba(63, 143, 82, 0.08);
-}
-.optron-pill.sm { padding: 3px 10px; font-size: 0.75rem; }
 
 /* Optron Brand / Hardware Product Card — Agrone-style light card:
    white surface on the cream page, a small pill badge, and a circular
@@ -1220,7 +1169,6 @@ html:not(.js) .gallery-zoom { display: none; }
   padding: 132px 0 110px;
   color: var(--white);
 }
-.hero-agro-content .optron-pill { margin-bottom: 22px; }
 .hero-agro-content h1 { color: var(--white); font-size: clamp(2.125rem, 4.2vw, 3.375rem); line-height: 1.12; letter-spacing: -0.02em; text-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .hero-agro-content .text-accent { color: var(--optron-orange); }
 .hero-agro-content p { color: rgba(255,255,255,0.88); font-size: 1.0625rem; line-height: 1.7; max-width: 520px; margin: 20px 0 30px; }
