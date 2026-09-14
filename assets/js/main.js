@@ -176,13 +176,90 @@
         }
       }).catch(function () {
         if (statusEl) {
-          statusEl.textContent = 'Something went wrong sending your message. Please email info@phirez.com directly or try again.';
+          statusEl.textContent = 'Something went wrong sending your message. Please email info@phirez.ug directly or try again.';
           statusEl.className = 'form-status show error';
         }
       }).finally(function () {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
       });
     });
+
+    /* Pre-fill contact form fields from URL query parameters (?product=..., ?course=..., ?action=...) */
+    if (window.location.search) {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var product = params.get('product');
+        var course = params.get('course');
+        var action = params.get('action');
+        var subjectSelect = form.querySelector('#subject');
+        var messageTextarea = form.querySelector('#message');
+
+        var productMap = {
+          'trimble-r12i': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'trimble-s-series': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'trimble-x7-x9': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'trimble-x12': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'trimble-tbc': 'Software Licensing: Esri GIS, Carlson & Autodesk',
+          'trimble-general': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'trimble-other': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
+          'dji-enterprise-general': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
+          'dji-m350': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
+          'dji-dock3': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
+          'dji-zenmuse-l3': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
+          'spectra-geospatial-general': 'Equipment Inquiry: Spectra Geospatial Systems',
+          'spectra-gnss': 'Equipment Inquiry: Spectra Geospatial Systems',
+          'spectra-focus': 'Equipment Inquiry: Spectra Geospatial Systems',
+          'spectra-ranger': 'Equipment Inquiry: Spectra Geospatial Systems',
+          'nikon-general': 'Equipment Inquiry: Nikon Optical Instruments',
+          'nikon-xf': 'Equipment Inquiry: Nikon Optical Instruments',
+          'nikon-ne100': 'Equipment Inquiry: Nikon Optical Instruments',
+          'nikon-ac2s': 'Equipment Inquiry: Nikon Optical Instruments',
+          'seafloor-general': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
+          'seafloor-echoboat': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
+          'seafloor-hydrone': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
+          'seafloor-hydrolite': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
+          'us-radar-general': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
+          'us-radar-gpr': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
+          'us-radar-gprover': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
+          'us-radar-100series': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
+          'us-radar-survey': 'Equipment Inquiry: US Radar Ground Penetrating Radar'
+        };
+
+        var matchedSubject = '';
+        var noteContext = '';
+
+        if (product) {
+          matchedSubject = productMap[product] || 'Equipment Inquiry: Trimble Survey Systems & GNSS';
+          noteContext = 'I would like to request pricing, technical specifications, and availability for: ' + product.replace(/-/g, ' ').toUpperCase() + '.';
+        } else if (course) {
+          matchedSubject = 'Professional Training & Capacity Building';
+          noteContext = 'I am interested in scheduling or learning more about the ' + course.replace(/-/g, ' ').toUpperCase() + ' training module.';
+        } else if (action === 'service') {
+          matchedSubject = 'Equipment Service, Calibration & Maintenance';
+          noteContext = 'I would like to request instrument calibration and maintenance service for our survey equipment.';
+        } else if (action === 'support') {
+          matchedSubject = 'Technical Support & Field Diagnostics';
+          noteContext = 'I am reaching out to request technical support for our geospatial hardware/software.';
+        } else if (action === 'training') {
+          matchedSubject = 'Professional Training & Capacity Building';
+        }
+
+        if (matchedSubject && subjectSelect) {
+          for (var i = 0; i < subjectSelect.options.length; i++) {
+            if (subjectSelect.options[i].value === matchedSubject || subjectSelect.options[i].text === matchedSubject) {
+              subjectSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+
+        if (noteContext && messageTextarea && !messageTextarea.value.trim()) {
+          messageTextarea.value = noteContext;
+        }
+      } catch (e) {
+        /* Ignore query parsing errors */
+      }
+    }
   }
 
   /* ---------------- Hero floating cards that pre-filter the gallery ---------------- */
@@ -240,9 +317,13 @@
         lightbox._pool = pool;
       }
 
-      function openLightbox(index) {
+      function openLightbox(targetItem) {
         lastFocused = document.activeElement;
-        renderLightbox(index);
+        var visible = galleryItems.filter(function (item) { return !item.classList.contains('is-hidden'); });
+        var pool = visible.length ? visible : galleryItems;
+        var idx = typeof targetItem === 'number' ? targetItem : pool.indexOf(targetItem);
+        if (idx === -1) idx = 0;
+        renderLightbox(idx);
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
         body.classList.add('nav-locked');
@@ -255,11 +336,12 @@
         if (lastFocused) lastFocused.focus();
       }
 
-      galleryItems.forEach(function (item, i) {
+      galleryItems.forEach(function (item) {
         var link = item.querySelector('.gallery-link');
+        if (!link) return;
         link.addEventListener('click', function (e) {
           e.preventDefault();
-          openLightbox(i);
+          openLightbox(item);
         });
       });
 
