@@ -1148,8 +1148,9 @@ html:not(.js) .gallery-zoom { display: none; }
 .hero-agro {
   position: relative;
   padding: 0;
-  background: var(--off-white);
+  background: var(--navy-950);
 }
+.hero-agro.hero-agro-light { background: var(--off-white); }
 .hero-agro-frame {
   position: relative;
   width: 100%;
