@@ -18,6 +18,33 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------------- Desktop "Solutions" hover dropdown ----------------
+     Pure-CSS :hover closes the instant the cursor leaves the trigger's own
+     box, which is too small a target to reach the panel below it — the
+     panel would flash shut before a click could land. Layering on a JS
+     "is-open" state with a short close delay gives the cursor time to
+     travel from the link down into the panel without losing the hover. */
+  document.querySelectorAll('.nav-drop').forEach(function (drop) {
+    var closeTimer;
+    function open() {
+      clearTimeout(closeTimer);
+      drop.classList.add('is-open');
+    }
+    function scheduleClose() {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () { drop.classList.remove('is-open'); }, 350);
+    }
+    drop.addEventListener('mouseenter', open);
+    drop.addEventListener('mouseleave', scheduleClose);
+    drop.addEventListener('focusin', open);
+    drop.addEventListener('focusout', function (e) {
+      if (!drop.contains(e.relatedTarget)) scheduleClose();
+    });
+    drop.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { drop.classList.remove('is-open'); drop.querySelector('a').blur(); }
+    });
+  });
+
   /* ---------------- Full-screen nav overlay ---------------- */
   var menuTrigger = document.querySelector('.menu-trigger');
   var navOverlay = document.querySelector('.nav-overlay');
