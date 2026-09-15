@@ -885,6 +885,43 @@ html:not(.js) .gallery-zoom { display: none; }
   margin-bottom: 20px;
 }
 
+/* Simple catalog-style product card: image, name, one-line spec
+   summary, two pill CTAs — centered and minimal (manufacturer-catalog look). */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 44px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+.product-card-media {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.product-card-media img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.product-card h3 { font-size: 1.25rem; color: var(--navy-950); margin-bottom: 14px; }
+.product-card-tagline {
+  font-size: 0.875rem;
+  color: var(--slate-400);
+  line-height: 1.75;
+  margin-bottom: 30px;
+  max-width: 340px;
+}
+.product-card-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.product-card .btn { padding: 12px 20px; font-size: 0.8125rem; }
+.product-card .btn-outline { border-color: var(--border-light); color: var(--navy-950); }
+.product-card .btn-outline:hover { background: var(--navy-950); border-color: var(--navy-950); color: var(--white); }
+
 /* Optron Comprehensive Service Box */
 .optron-service-box {
   background: var(--white);
