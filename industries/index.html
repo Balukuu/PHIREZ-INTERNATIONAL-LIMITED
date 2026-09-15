@@ -299,21 +299,37 @@
   <section class="section-dark" style="background:var(--navy-950); padding:90px 0;">
     <div class="container">
 
+      <div style="max-width:680px; margin:0 auto 44px; text-align:center;" data-aos>
+        <h2>Six Sectors. <span style="color:var(--optron-orange);">One Certified Partner.</span></h2>
+        <p style="margin-top:14px; color:rgba(255,255,255,0.75); font-size:1.0625rem;">From open-pit mines to disaster-response zones, we engineer workflows that match the terrain, regulation, and risk profile of each sector we serve.</p>
+      </div>
+
+      <nav class="industry-toc" aria-label="Jump to industry section" data-aos>
+        <a href="#mining"><span>01</span>Mining &amp; Quarrying</a>
+        <a href="#civil"><span>02</span>Civil &amp; Highways</a>
+        <a href="#cadastre"><span>03</span>Cadastre &amp; Land</a>
+        <a href="#utilities"><span>04</span>Utilities &amp; Energy</a>
+        <a href="#agriculture"><span>05</span>Agriculture</a>
+        <a href="#humanitarian"><span>06</span>Public Safety</a>
+      </nav>
+
       <!-- 1. Mining & Quarrying -->
       <div class="optron-case-study" id="mining" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/drone-survey-quarry-01.jpg" alt="DJI Enterprise drone surveying a quarry pit for volumetric auditing." loading="lazy">
+          <span class="case-num">01</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
             <span>Open Pit &amp; Subsurface</span>
           </div>
           <h3>Mining, Quarrying &amp; Heavy Earthworks</h3>
           <p>Overcome the hazards and slow turnaround of manual pit surveys. Phirez equips mining companies with autonomous drone LiDAR for rapid stockpile volumetric reconciliation, Trimble robotic total stations for highwall slope deformation monitoring, and Carlson Mining software for drill-and-blast design.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>Volumetric Auditing:</strong> Monthly cut/fill calculations with sub-5cm accuracy using DJI Matrice 350 RTK &amp; Zenmuse L2.</li>
-            <li>&bull; <strong>Pit Wall Safety:</strong> Continuous deformation and prism monitoring with Trimble S-Series robotic stations.</li>
-            <li>&bull; <strong>Mine Geology Modeling:</strong> Carlson Geology &amp; Mine Design software integration.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Volumetric Auditing:</strong> Monthly cut/fill calculations with sub-5cm accuracy using DJI Matrice 350 RTK &amp; Zenmuse L2.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Pit Wall Safety:</strong> Continuous deformation and prism monitoring with Trimble S-Series robotic stations.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Mine Geology Modeling:</strong> Carlson Geology &amp; Mine Design software integration.</span></li>
           </ul>
           <a href="/contact/?sector=mining" class="optron-link">
             <span>Consult A Mining Specialist</span>
@@ -323,20 +339,22 @@
       </div>
 
       <!-- 2. Civil Engineering & Construction -->
-      <div class="optron-case-study" id="civil" data-aos>
+      <div class="optron-case-study reverse" id="civil" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/gnss-construction-site-02.jpg" alt="Civil engineering survey team with Trimble GNSS on an active road site." loading="lazy">
+          <span class="case-num">02</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-cad"/></svg></span>
             <span>Highways, Bridges &amp; Earthmoving</span>
           </div>
           <h3>Civil Engineering &amp; Highway Construction</h3>
           <p>Deliver complex linear corridors and structural bridges strictly within engineering tolerances. We supply Trimble R12i GNSS receivers, machine control positioning systems, and 3D laser scanners that allow site engineers to verify as-builts directly against 3D BIM models in real time.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>Corridor Stakeout:</strong> High-speed road centerline &amp; batter stakeout with Trimble Access Roading.</li>
-            <li>&bull; <strong>Structural As-Built Verification:</strong> Trimble X7 3D laser scanning for bridges, culverts, and tunnels.</li>
-            <li>&bull; <strong>BIM Interoperability:</strong> Seamless point cloud import into Autodesk Civil 3D and Revit.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Corridor Stakeout:</strong> High-speed road centerline &amp; batter stakeout with Trimble Access Roading.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Structural As-Built Verification:</strong> Trimble X7 3D laser scanning for bridges, culverts, and tunnels.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>BIM Interoperability:</strong> Seamless point cloud import into Autodesk Civil 3D and Revit.</span></li>
           </ul>
           <a href="/contact/?sector=civil" class="optron-link">
             <span>Consult A Civil Engineering Specialist</span>
@@ -349,17 +367,19 @@
       <div class="optron-case-study" id="cadastre" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/gnss-static-setup-01.jpg" alt="Phirez survey team conducting geodetic control survey with Trimble GNSS on tripods." loading="lazy">
+          <span class="case-num">03</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-gov"/></svg></span>
             <span>Land Governance &amp; CORS Networks</span>
           </div>
           <h3>Land Administration, Titling &amp; Cadastre</h3>
           <p>Accurate land records are the foundation of national economic development. Phirez establishes national and regional geodetic control networks (CORS), executes legal cadastral boundary surveys, and configures Esri ArcGIS Enterprise land registry databases for municipal and government authorities.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>CORS Network Establishment:</strong> Multi-frequency reference stations for continuous RTK corrections.</li>
-            <li>&bull; <strong>Boundary Formalization:</strong> Sub-centimeter Trimble GNSS static and RTK parcel surveys.</li>
-            <li>&bull; <strong>Spatial Land Registries:</strong> Secure, searchable parcel databases built on Esri Parcel Fabric architecture.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>CORS Network Establishment:</strong> Multi-frequency reference stations for continuous RTK corrections.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Boundary Formalization:</strong> Sub-centimeter Trimble GNSS static and RTK parcel surveys.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Spatial Land Registries:</strong> Secure, searchable parcel databases built on Esri Parcel Fabric architecture.</span></li>
           </ul>
           <a href="/contact/?sector=cadastre" class="optron-link">
             <span>Consult A Cadastral Specialist</span>
@@ -369,20 +389,22 @@
       </div>
 
       <!-- 4. Utilities, Energy & Telecom -->
-      <div class="optron-case-study" id="utilities" data-aos>
+      <div class="optron-case-study reverse" id="utilities" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/industry-event-02.jpg" alt="Technical GIS presentation on asset management for utility corridors." loading="lazy">
+          <span class="case-num">04</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-bolt"/></svg></span>
             <span>Power, Water, Fiber &amp; Gas</span>
           </div>
           <h3>Utilities, Energy &amp; Telecom Corridors</h3>
           <p>Protect existing underground assets and model overhead networks. We combine US Radar Ground Penetrating Radar (GPR) for detecting buried pipes and fiber optic cables with drone LiDAR for mapping high-voltage transmission line vegetation clearances.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>Subsurface Utility Engineering (SUE):</strong> Triple-frequency GPR scanning eliminates strike hazards.</li>
-            <li>&bull; <strong>Transmission Line Modeling:</strong> Aerial LiDAR identifies tree encroachment and conductor sag.</li>
-            <li>&bull; <strong>Asset Geodatabases:</strong> Esri Utility Network deployment for water, power, and telecom operators.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Subsurface Utility Engineering (SUE):</strong> Triple-frequency GPR scanning eliminates strike hazards.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Transmission Line Modeling:</strong> Aerial LiDAR identifies tree encroachment and conductor sag.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Asset Geodatabases:</strong> Esri Utility Network deployment for water, power, and telecom operators.</span></li>
           </ul>
           <a href="/contact/?sector=utilities" class="optron-link">
             <span>Consult A Utility Specialist</span>
@@ -395,17 +417,19 @@
       <div class="optron-case-study" id="agriculture" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/precision-agri-demo-01.jpg" alt="Field demonstration of precision agricultural drone at a sugarcane plantation." loading="lazy">
+          <span class="case-num">05</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-leaf"/></svg></span>
             <span>Crop Health &amp; Forest Canopy</span>
           </div>
           <h3>Commercial Agriculture, Forestry &amp; Environment</h3>
           <p>Maximize crop yields and monitor forest concessions with precision multispectral drone analytics. Phirez delivers multispectral mapping to generate NDVI plant vigor indices, identify irrigation failures, and optimize variable-rate fertilizer distribution across large agricultural estates.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>NDVI Crop Scouting:</strong> Detect crop stress and disease weeks before visible to the naked eye.</li>
-            <li>&bull; <strong>Prescription Mapping:</strong> Generate automated variable-rate spraying and fertilizer application maps.</li>
-            <li>&bull; <strong>Forest Biomass Estimation:</strong> High-density drone LiDAR measures tree canopy height and timber volume.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>NDVI Crop Scouting:</strong> Detect crop stress and disease weeks before visible to the naked eye.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Prescription Mapping:</strong> Generate automated variable-rate spraying and fertilizer application maps.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Forest Biomass Estimation:</strong> High-density drone LiDAR measures tree canopy height and timber volume.</span></li>
           </ul>
           <a href="/contact/?sector=agriculture" class="optron-link">
             <span>Consult An Agricultural Specialist</span>
@@ -415,20 +439,22 @@
       </div>
 
       <!-- 6. Public Safety & Humanitarian Aid -->
-      <div class="optron-case-study" id="humanitarian" data-aos>
+      <div class="optron-case-study reverse" id="humanitarian" data-aos>
         <div class="case-media">
           <img src="/assets/images/gallery/thumbs/gnss-training-01.jpg" alt="Phirez trainers conducting geospatial capacity building overlooking Kampala." loading="lazy">
+          <span class="case-num">06</span>
         </div>
         <div class="case-body">
           <div class="case-meta">
+            <span class="case-icon"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></span>
             <span>Disaster Response &amp; Planning</span>
           </div>
           <h3>Public Safety, Disaster Response &amp; Humanitarian Aid</h3>
           <p>Rapid decision-making saves lives. Phirez partners with UN agencies, international NGOs, and government ministries to deliver rapid drone damage mapping, flood risk modeling, refugee settlement spatial planning, and field data collection architectures with ArcGIS Survey123.</p>
-          <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin:12px 0 20px;">
-            <li>&bull; <strong>Rapid Post-Disaster Mapping:</strong> Generate orthomosaics of flood or landslide zones within hours.</li>
-            <li>&bull; <strong>Settlement Micro-Planning:</strong> Digital elevation models to plan drainage, water points, and shelters.</li>
-            <li>&bull; <strong>Mobile Survey Workflows:</strong> Offline field data collection for humanitarian needs assessments.</li>
+          <ul class="case-highlights">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Rapid Post-Disaster Mapping:</strong> Generate orthomosaics of flood or landslide zones within hours.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Settlement Micro-Planning:</strong> Digital elevation models to plan drainage, water points, and shelters.</span></li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg><span><strong>Mobile Survey Workflows:</strong> Offline field data collection for humanitarian needs assessments.</span></li>
           </ul>
           <a href="/contact/?sector=humanitarian" class="optron-link">
             <span>Consult A Humanitarian GIS Specialist</span>
@@ -446,7 +472,12 @@
       <div class="assurance-banner" data-aos>
         <div>
           <h3>Full Lifecycle Support For Every Sector</h3>
-          <p>Regardless of your industry, Phirez provides guaranteed factory calibration, emergency repair loaner units, and tailored in-house training to ensure zero field downtime.</p>
+          <p>Regardless of your industry, our commitment doesn't end at delivery — every engagement is backed by the same certified support standard.</p>
+          <ul class="assurance-points">
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Guaranteed Factory Calibration</li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Emergency Repair Loaner Units</li>
+            <li><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>Tailored In-House Training</li>
+          </ul>
         </div>
         <div style="display:flex; gap:16px; flex-wrap:wrap;">
           <a href="/contact/" class="btn btn-orange">

@@ -960,22 +960,25 @@ html:not(.js) .gallery-zoom { display: none; }
 .optron-case-study {
   background: var(--white);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 .optron-case-study:hover {
   border-color: transparent;
   transform: translateY(-4px);
   box-shadow: var(--shadow-lift);
 }
+.optron-case-study.reverse { grid-template-columns: 1fr 1.1fr; }
+.optron-case-study.reverse .case-media { order: 2; }
+.optron-case-study.reverse .case-body { order: 1; }
 .optron-case-study .case-media {
   position: relative;
-  min-height: 320px;
+  min-height: 380px;
   overflow: hidden;
 }
 .optron-case-study .case-media img {
@@ -987,11 +990,22 @@ html:not(.js) .gallery-zoom { display: none; }
 .optron-case-study:hover .case-media img {
   transform: scale(1.05);
 }
+.optron-case-study .case-media::after {
+  content: '';
+  position: absolute; inset: auto 0 0 0; height: 130px;
+  background: linear-gradient(0deg, rgba(8,16,11,0.7) 0%, rgba(8,16,11,0) 100%);
+  pointer-events: none;
+}
+.optron-case-study .case-num {
+  position: absolute; left: 26px; bottom: 18px; z-index: 2;
+  font-family: var(--font-display); font-weight: 800; font-size: 2.5rem;
+  color: rgba(255,255,255,0.92); letter-spacing: -0.02em; line-height: 1;
+}
 .optron-case-study .case-body {
-  padding: 40px;
+  padding: 44px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 14px;
 }
@@ -1002,6 +1016,12 @@ html:not(.js) .gallery-zoom { display: none; }
   font-size: 0.8125rem;
   color: var(--slate-400);
 }
+.optron-case-study .case-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--optron-orange); color: var(--white);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.optron-case-study .case-icon svg { width: 19px; height: 19px; }
 .optron-case-study h3 {
   font-size: clamp(1.25rem, 2vw, 1.65rem);
   color: var(--navy-950);
@@ -1012,6 +1032,27 @@ html:not(.js) .gallery-zoom { display: none; }
   font-size: 0.9375rem;
   line-height: 1.65;
 }
+.optron-case-study .case-highlights {
+  display: flex; flex-direction: column; gap: 11px;
+  margin: 6px 0 4px; padding: 0; list-style: none;
+}
+.optron-case-study .case-highlights li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 0.875rem; color: var(--slate-700); line-height: 1.6;
+}
+.optron-case-study .case-highlights li svg {
+  width: 15px; height: 15px; margin-top: 4px;
+  color: var(--brand-blue); flex-shrink: 0;
+}
+.optron-case-study .case-highlights li strong { color: var(--navy-950); }
+.optron-case-study .optron-link {
+  color: var(--navy-950);
+  width: 100%;
+  margin-top: 4px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light);
+}
+.optron-case-study .optron-link:hover { color: var(--optron-orange-dark); }
 
 /* Assurance Promo Banner (Optron Style) */
 .assurance-banner {
@@ -1038,6 +1079,35 @@ html:not(.js) .gallery-zoom { display: none; }
   max-width: 650px;
   line-height: 1.6;
 }
+.assurance-points {
+  display: flex; flex-wrap: wrap; gap: 10px 28px;
+  margin-top: 18px; padding: 0; list-style: none;
+}
+.assurance-points li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.875rem; font-weight: 600; color: var(--white);
+}
+.assurance-points li svg { width: 16px; height: 16px; color: var(--optron-orange); flex-shrink: 0; }
+
+/* Industry section table-of-contents (jump nav) */
+.industry-toc {
+  display: flex; flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 56px;
+}
+.industry-toc a {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 18px 22px; margin-bottom: -1px;
+  font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.6);
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.industry-toc a span {
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--optron-orange); font-size: 0.8125rem;
+}
+.industry-toc a:hover { color: var(--white); border-color: var(--optron-orange); }
 
 /* Category Filter Tabs */
 .filter-tabs-row {
@@ -1266,6 +1336,8 @@ html:not(.js) .gallery-zoom { display: none; }
   .hero-agro-card { padding: 18px; gap: 16px; }
   .hero-agro-card .thumb { width: 92px; height: 92px; }
   .hero-agro-spacer { height: 50px; }
+  .industry-toc { display: grid; grid-template-columns: 1fr 1fr; }
+  .industry-toc a { padding: 14px; }
 }
 
 /* ---------- Feature Row (3-card alternating variant, Optron/Biztop hybrid) ---------- */
@@ -1387,9 +1459,9 @@ html:not(.js) .gallery-zoom { display: none; }
   .stat-row { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .stat:nth-child(3) { border-left: none; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .optron-case-study { grid-template-columns: 1fr; }
-  .optron-case-study .case-media { min-height: 240px; }
-  .optron-case-study .case-body { padding: 28px; }
+  .optron-case-study, .optron-case-study.reverse { grid-template-columns: 1fr; }
+  .optron-case-study .case-media, .optron-case-study.reverse .case-media { order: 0; min-height: 240px; }
+  .optron-case-study .case-body, .optron-case-study.reverse .case-body { order: 0; padding: 28px; }
   .hero-photo .container { grid-template-columns: 1fr; }
   .hero-photo-frame { aspect-ratio: 16/10; max-width: 520px; }
   .feature-row { grid-template-columns: 1fr; }
