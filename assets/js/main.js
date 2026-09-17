@@ -45,6 +45,52 @@
     });
   });
 
+  /* ---------------- Rotating hero carousel (DJI Enterprise style) ----------------
+     Cross-fades a stack of [data-hero-carousel] .hero-carousel-slide elements on
+     an interval, with arrow/dot controls and hover-to-pause. Progressively
+     enhanced: with JS disabled the first slide (.is-active in the markup) is the
+     only one visible, so the hero still reads correctly. */
+  document.querySelectorAll('[data-hero-carousel]').forEach(function (carousel) {
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide'));
+    if (slides.length < 2) return;
+    var dotsWrap = carousel.querySelector('.hero-carousel-dots');
+    var dots = slides.map(function (_, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      if (i === 0) b.classList.add('is-active');
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    var current = 0;
+    var interval = parseInt(carousel.dataset.interval, 10) || 6000;
+    var timer;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === current); });
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+    }
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(next, interval);
+    }
+
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { show(i); restart(); });
+    });
+    var prevBtn = carousel.querySelector('.hero-carousel-arrow.prev');
+    var nextBtn = carousel.querySelector('.hero-carousel-arrow.next');
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restart(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); restart(); });
+    carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+    carousel.addEventListener('mouseleave', restart);
+
+    restart();
+  });
+
   /* ---------------- Full-screen nav overlay ---------------- */
   var menuTrigger = document.querySelector('.menu-trigger');
   var navOverlay = document.querySelector('.nav-overlay');

@@ -268,43 +268,133 @@
 <main id="main">
 
 
-  <!-- PAGE HERO -->
-  <section class="hero-agro" style="background:#0D1911;">
-    <div class="hero-agro-frame">
-      <img src="/assets/images/gallery/drone-demo-indoor-01.jpg" alt="An enterprise-grade DJI drone flown during a technology demonstration event in Uganda." loading="eager">
-      <div class="hero-agro-scrim"></div>
+  <!-- PAGE HERO — rotating carousel styled on enterprise.dji.com's own hero,
+       built from DJI's real product photography, headlines and taglines. -->
+  <section class="hero-carousel" data-hero-carousel data-interval="6000">
+    <h1 class="visually-hidden">Commercial Drones, Photogrammetry &amp; Aerial LiDAR &mdash; DJI Enterprise Solutions from Phirez</h1>
+    <div class="hero-carousel-topbar">
       <div class="container">
-        <div class="hero-agro-content" data-aos>
-          <div class="breadcrumb"><a href="/">Home</a><svg width="14" height="14"><use href="#i-chevron"/></svg><a href="/solutions/">Solutions</a><svg width="14" height="14"><use href="#i-chevron"/></svg><span>DJI Enterprise</span></div>
-          <h1>Commercial Drones, Photogrammetry &amp; <span class="text-accent">Aerial LiDAR</span></h1>
-          <p>Phirez supplies and supports DJI Enterprise drone platforms across Uganda and East Africa &mdash; from heavy-duty industrial RTK drones to compact mapping platforms and integrated LiDAR payloads &mdash; for mining, construction, agriculture, and utility corridor mapping.</p>
-        </div>
-        <div class="hero-agro-badge">
-          <span class="stat-num">15+</span>
-          <span class="stat-cap">Years in Geospatial &amp; IT Solutions</span>
-        </div>
+        <div class="breadcrumb"><a href="/">Home</a><svg width="14" height="14"><use href="#i-chevron"/></svg><a href="/solutions/">Solutions</a><svg width="14" height="14"><use href="#i-chevron"/></svg><span>DJI Enterprise</span></div>
       </div>
     </div>
-    <div class="hero-agro-cards">
-      <a class="hero-agro-card" href="#products">
-        <span class="thumb"><img src="/assets/images/vendor-equipment/dji-matrice-4-series-product-01.png" alt="" loading="lazy"></span>
-        <span class="info">
-          <h4>DJI Matrice 4 Series</h4>
-          <p>DJI's newest intelligent mapping &amp; inspection platform</p>
-          <span class="cta-outline">View Details</span>
-        </span>
-        <span class="go"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-      </a>
-      <a class="hero-agro-card reverse" href="#products">
-        <span class="thumb"><img src="/assets/images/vendor-equipment/dji-dock-3-product-01.png" alt="" loading="lazy"></span>
-        <span class="info">
-          <h4>DJI Dock 3</h4>
-          <p>Unattended, autonomous drone-in-a-box operations</p>
-          <span class="cta-fill">Explore More<span class="arrow-circle"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span></span>
-        </span>
-      </a>
+
+    <div class="hero-carousel-badge">
+      <span class="stat-num">15+</span>
+      <span class="stat-cap">Years in Geospatial &amp; IT Solutions</span>
     </div>
-    <div class="hero-agro-spacer"></div>
+
+    <div class="hero-carousel-track">
+      <ul style="list-style:none; margin:0; padding:0;">
+        <li class="hero-carousel-slide is-active" role="img" aria-label="DJI AP100 Parachute" style="background-image:url('/assets/images/vendor-equipment/dji-ap100-parachute-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI AP100 Parachute</p>
+              <p class="hero-carousel-tagline">For the Priceless Below</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-ap100" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/ap100-parachute" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI O4 Ground Station" style="background-image:url('/assets/images/vendor-equipment/dji-o4-ground-station-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI O4 Ground Station</p>
+              <p class="hero-carousel-tagline">Reach Farther, Stay Aware</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-o4-ground-station" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/o4-ground-station" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide is-plain-title" role="img" aria-label="DJI Dock as First Responder" style="background-image:url('/assets/images/vendor-equipment/dji-dock-first-responder-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">Dock as First Responder</p>
+              <p class="hero-carousel-tagline">Launch on Alert, Eyes on Scene First</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-dock-3" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/dock-3" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI Zenmuse L3" style="background-image:url('/assets/images/vendor-equipment/dji-zenmuse-l3-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">Zenmuse L3</p>
+              <p class="hero-carousel-tagline">See Through, Far and True</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-zenmuse-l3" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/zenmuse-l3" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI FlightHub 2" style="background-image:url('/assets/images/vendor-equipment/dji-flighthub-2-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI FlightHub 2</p>
+              <p class="hero-carousel-tagline">Fly With Cloud Intelligence</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-flighthub-2" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/flighthub-2" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI Matrice 400" style="background-image:url('/assets/images/vendor-equipment/dji-matrice-400-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI Matrice 400</p>
+              <p class="hero-carousel-tagline">Engineered for Excellence, Designed for Versatility</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-matrice-400" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/matrice-400" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI Dock 3" style="background-image:url('/assets/images/vendor-equipment/dji-dock-3-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI Dock 3</p>
+              <p class="hero-carousel-tagline">Rise to Any Challenge</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-dock-3" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/dock-3" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="hero-carousel-slide" role="img" aria-label="DJI Matrice 4 Series" style="background-image:url('/assets/images/vendor-equipment/dji-matrice-4-series-hero-01.jpg');">
+          <div class="hero-carousel-scrim"></div>
+          <div class="container">
+            <div class="hero-carousel-copy">
+              <p class="hero-carousel-title">DJI Matrice 4 Series</p>
+              <p class="hero-carousel-tagline">The Age of Intelligent Flight</p>
+              <div class="hero-carousel-actions">
+                <a href="/contact/?product=dji-m4-series" class="btn btn-navy">Get A Quote</a>
+                <a href="https://enterprise.dji.com/matrice-4-series" class="btn btn-outline-white" target="_blank" rel="noopener">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <button type="button" class="hero-carousel-arrow prev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button>
+      <button type="button" class="hero-carousel-arrow next" aria-label="Next slide"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button>
+      <div class="hero-carousel-dots"></div>
+    </div>
   </section>
 
   <!-- QUICK NAVIGATION ANCHORS -->

@@ -1370,6 +1370,94 @@ html:not(.js) .gallery-zoom { display: none; }
    no floating cards row underneath (see .hero-agro-cards usage per page). */
 .page-hero.hero-agro-simple { padding-bottom: 70px; }
 
+/* ---------- Rotating full-bleed hero carousel (DJI Enterprise style):
+   stacked, cross-fading photo slides with per-slide title/tagline/CTAs,
+   arrow controls and dot navigation. Initialized by main.js
+   ([data-hero-carousel]). ---------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.hero-carousel {
+  position: relative;
+  background: var(--navy-950);
+  overflow: hidden;
+}
+.hero-carousel-topbar { position: relative; z-index: 4; padding: 108px 0 0; }
+.hero-carousel-track { position: relative; min-height: 620px; }
+.hero-carousel-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.9s var(--ease);
+  display: flex; align-items: center;
+  z-index: 1;
+}
+.hero-carousel-slide.is-active { opacity: 1; visibility: visible; z-index: 2; }
+.hero-carousel-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(13,25,17,0.85) 0%, rgba(13,25,17,0.5) 40%, rgba(13,25,17,0.08) 72%);
+}
+.hero-carousel-slide > .container { position: relative; z-index: 2; width: 100%; }
+.hero-carousel-copy { max-width: 560px; padding: 40px 0 120px; }
+.hero-carousel-title {
+  font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  letter-spacing: -0.01em; font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  color: var(--white); line-height: 1.15; text-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+.hero-carousel-slide.is-plain-title .hero-carousel-title { text-transform: none; font-size: clamp(1.75rem, 3.2vw, 2.375rem); }
+.hero-carousel-tagline { margin: 14px 0 32px; font-size: 1.125rem; font-weight: 400; color: rgba(255,255,255,0.88); }
+.hero-carousel-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.hero-carousel-arrow:hover { background: rgba(255,255,255,0.28); }
+.hero-carousel-arrow svg { width: 20px; height: 20px; }
+.hero-carousel-arrow.prev { left: 24px; }
+.hero-carousel-arrow.next { right: 24px; }
+.hero-carousel-arrow.prev svg { transform: rotate(180deg); }
+.hero-carousel-dots { position: absolute; left: 0; right: 0; bottom: 28px; z-index: 5; display: flex; justify-content: center; gap: 10px; }
+.hero-carousel-dots button {
+  width: 9px; height: 9px; border-radius: 50%; padding: 0; border: none;
+  background: rgba(255,255,255,0.35); cursor: pointer;
+  transition: background 0.25s var(--ease), width 0.25s var(--ease), border-radius 0.25s var(--ease);
+}
+.hero-carousel-dots button.is-active { background: var(--optron-orange); width: 26px; border-radius: 5px; }
+.hero-carousel-badge {
+  position: absolute; top: 128px; right: 24px; z-index: 5;
+  background: var(--optron-orange); border-radius: 26px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow-lift);
+  text-align: center;
+}
+.hero-carousel-badge .stat-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 2rem; color: var(--white); line-height: 1; letter-spacing: -0.02em; }
+.hero-carousel-badge .stat-cap { display: block; margin-top: 8px; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.92); line-height: 1.4; max-width: 130px; }
+
+@media (max-width: 900px) {
+  .hero-carousel-badge { display: none; }
+  .hero-carousel-topbar { padding-top: 92px; }
+  .hero-carousel-track { min-height: 560px; }
+  .hero-carousel-copy { padding: 24px 0 100px; }
+  .hero-carousel-arrow { width: 40px; height: 40px; }
+  .hero-carousel-arrow.prev { left: 12px; }
+  .hero-carousel-arrow.next { right: 12px; }
+}
+@media (max-width: 640px) {
+  .hero-carousel-track { min-height: 520px; }
+  .hero-carousel-arrow { display: none; }
+  .hero-carousel-actions .btn { padding: 12px 20px; font-size: 0.875rem; }
+}
+
 @media (max-width: 900px) {
   .hero-agro-frame { min-height: 720px; border-radius: 0 0 28px 28px; }
   .hero-agro-content { padding: 108px 0 76px; }
