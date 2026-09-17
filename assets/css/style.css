@@ -1392,6 +1392,7 @@ html:not(.js) .gallery-zoom { display: none; }
 .hero-carousel-track { position: relative; min-height: 620px; }
 .hero-carousel-slide {
   position: absolute; inset: 0;
+  background-color: var(--navy-950);
   background-size: cover; background-position: center;
   opacity: 0; visibility: hidden;
   transition: opacity 0.9s var(--ease);
