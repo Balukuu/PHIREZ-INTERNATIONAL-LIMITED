@@ -1386,11 +1386,25 @@ html:not(.js) .gallery-zoom { display: none; }
 }
 .hero-carousel {
   position: relative;
-  background: var(--navy-950);
+  padding: 0;
+  background: #0D1911;
   overflow: hidden;
 }
-.hero-carousel-topbar { position: relative; z-index: 4; padding: 108px 0 0; }
-.hero-carousel-track { position: relative; min-height: 620px; }
+/* Photo runs full-bleed behind the floating header + breadcrumb; the top and bottom
+   edges fade into the page's dark green so there is no seam against the sections around it. */
+.hero-carousel::before, .hero-carousel::after {
+  content: ''; position: absolute; left: 0; right: 0; z-index: 3; pointer-events: none;
+}
+.hero-carousel::before {
+  top: 0; height: 300px;
+  background: linear-gradient(180deg, #0D1911 0%, rgba(13,25,17,0.82) 32%, rgba(13,25,17,0.35) 68%, rgba(13,25,17,0) 100%);
+}
+.hero-carousel::after {
+  bottom: 0; height: 220px;
+  background: linear-gradient(0deg, #0D1911 0%, rgba(13,25,17,0.78) 34%, rgba(13,25,17,0) 100%);
+}
+.hero-carousel-topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 4; padding: 108px 0 0; }
+.hero-carousel-track { position: relative; min-height: 720px; }
 .hero-carousel-slide {
   position: absolute; inset: 0;
   background-color: var(--navy-950);
@@ -1406,7 +1420,7 @@ html:not(.js) .gallery-zoom { display: none; }
   background: linear-gradient(100deg, rgba(13,25,17,0.85) 0%, rgba(13,25,17,0.5) 40%, rgba(13,25,17,0.08) 72%);
 }
 .hero-carousel-slide > .container { position: relative; z-index: 2; width: 100%; }
-.hero-carousel-copy { max-width: 560px; padding: 40px 0 120px; }
+.hero-carousel-copy { max-width: 560px; padding: 90px 0 110px; }
 .hero-carousel-title {
   font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
   letter-spacing: -0.01em; font-size: clamp(1.75rem, 3.6vw, 2.75rem);
@@ -1448,14 +1462,16 @@ html:not(.js) .gallery-zoom { display: none; }
 @media (max-width: 900px) {
   .hero-carousel-badge { display: none; }
   .hero-carousel-topbar { padding-top: 92px; }
-  .hero-carousel-track { min-height: 560px; }
-  .hero-carousel-copy { padding: 24px 0 100px; }
+  .hero-carousel-track { min-height: 640px; }
+  .hero-carousel-copy { padding: 70px 0 100px; }
+  .hero-carousel::before { height: 240px; }
+  .hero-carousel::after { height: 170px; }
   .hero-carousel-arrow { width: 40px; height: 40px; }
   .hero-carousel-arrow.prev { left: 12px; }
   .hero-carousel-arrow.next { right: 12px; }
 }
 @media (max-width: 640px) {
-  .hero-carousel-track { min-height: 520px; }
+  .hero-carousel-track { min-height: 600px; }
   .hero-carousel-arrow { display: none; }
   .hero-carousel-actions .btn { padding: 12px 20px; font-size: 0.875rem; }
 }
@@ -1661,4 +1677,44 @@ html:not(.js) .gallery-zoom { display: none; }
 @media (max-width: 640px) {
   .whatsapp-fab { right: 16px; bottom: 16px; height: 54px; min-width: 54px; padding: 0 13px; }
   .whatsapp-fab-label { display: none; }
+}
+
+/* ---------- Cut-out product imagery (transparent PNGs shown large in cards) ---------- */
+.product-card-media.is-cutout { height: 250px; }
+.product-card-media.is-cutout img {
+  width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(13, 25, 17, 0.22));
+}
+.hero-agro-card .thumb.thumb-contain img { object-fit: contain; padding: 10px; }
+
+/* ---------- Product hero: transparent product shots on a dark, glowing stage ---------- */
+.hero-agro-frame-product {
+  background:
+    radial-gradient(ellipse 46% 62% at 70% 46%, rgba(143, 209, 79, 0.17), transparent 68%),
+    radial-gradient(ellipse 80% 70% at 12% 0%, rgba(63, 143, 82, 0.20), transparent 60%),
+    linear-gradient(165deg, #1A2F22 0%, #0D1911 72%);
+}
+.hero-agro-frame .hero-product-stage {
+  position: absolute; z-index: 1; pointer-events: none;
+  right: clamp(24px, 15%, 300px); bottom: 27%;
+  width: min(36%, 620px); height: 47%;
+  display: flex; align-items: flex-end; justify-content: center; gap: 5%;
+}
+.hero-agro-frame .hero-product-stage::before {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -3%; height: 8%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6), transparent 70%);
+  filter: blur(8px);
+}
+.hero-agro-frame .hero-product-stage img {
+  position: relative; inset: auto; width: auto; max-width: none; object-fit: contain;
+  filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.55));
+}
+.hero-agro-frame .hero-product-stage .hp-front { height: 100%; }
+.hero-agro-frame .hero-product-stage .hp-back { height: 88%; }
+@media (max-width: 1100px) {
+  .hero-agro-frame .hero-product-stage { right: 6%; width: 30%; }
+  .hero-agro-frame .hero-product-stage .hp-back { display: none; }
+}
+@media (max-width: 900px) {
+  .hero-agro-frame .hero-product-stage { display: none; }
 }
