@@ -7,6 +7,7 @@
    ========================================================================== */
 (function () {
   document.documentElement.classList.add('js');
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------------- Header scroll state ---------------- */
   var header = document.querySelector('.header-wrapper');
@@ -32,7 +33,7 @@
     }
     function scheduleClose() {
       clearTimeout(closeTimer);
-      closeTimer = setTimeout(function () { drop.classList.remove('is-open'); }, 350);
+      closeTimer = setTimeout(function () { drop.classList.remove('is-open'); }, 180);
     }
     drop.addEventListener('mouseenter', open);
     drop.addEventListener('mouseleave', scheduleClose);
@@ -75,6 +76,9 @@
     function prev() { show(current - 1); }
     function restart() {
       clearInterval(timer);
+      /* Reduced motion: keep the slide as a plain cross-fade the user drives
+         themselves (dots/arrows/swipe still work) instead of an unstoppable loop. */
+      if (prefersReducedMotion) return;
       timer = setInterval(next, interval);
     }
 
@@ -87,6 +91,32 @@
     if (nextBtn) nextBtn.addEventListener('click', function () { next(); restart(); });
     carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
     carousel.addEventListener('mouseleave', restart);
+
+    /* Touch swipe: horizontal drags past a small threshold commit to the
+       next/previous slide, same as the arrow controls. Vertical scrolling
+       is left alone (no preventDefault), so a swipe never hijacks the page. */
+    var track = carousel.querySelector('.hero-carousel-track');
+    if (track && window.PointerEvent) {
+      var swipeId = null, startX = 0, startY = 0;
+      var SWIPE_THRESHOLD = 40;
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'touch') return;
+        swipeId = e.pointerId;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+      track.addEventListener('pointerup', function (e) {
+        if (swipeId === null || e.pointerId !== swipeId) return;
+        swipeId = null;
+        var dx = e.clientX - startX;
+        var dy = e.clientY - startY;
+        if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) next(); else prev();
+          restart();
+        }
+      });
+      track.addEventListener('pointercancel', function () { swipeId = null; });
+    }
 
     restart();
   });

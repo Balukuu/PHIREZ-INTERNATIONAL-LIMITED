@@ -29,8 +29,8 @@
   --border-dark: rgba(255,255,255,0.12);
 
   /* Type */
-  --font-display: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Rhythm */
   --section-pad: clamp(80px, 10vw, 140px);
@@ -183,6 +183,53 @@ button:hover .hover-arrow .arrow-2 {
 .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline: 3px solid var(--brand-blue);
   outline-offset: 2px;
+}
+
+/* ---------- Press feedback (respond on pointer-down, not release) ----------
+   Touch has no hover state, so hover-only affordances never register on tap.
+   Every tappable surface below gets an immediate, fast :active response —
+   cards compress toward the page instead of lifting, pill/icon controls
+   shrink, and text nav rows dim — so feedback lands on press, not release. */
+.btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+}
+.card:active,
+.feature-card:active,
+.mega-tile:active,
+.nav-drop-tile:active,
+.brand-card-optron:active,
+.optron-service-box:active,
+.product-card:active,
+.partner-card:active,
+.hero-agro-card:active,
+.gallery-item:active,
+.client-card:active,
+.about-badge-float:active,
+.optron-case-study:active,
+.fr-card:active,
+.spotlight-card:active,
+.whatsapp-fab:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+.filter-btn:active,
+.tab-filter-btn:active,
+.carousel-arrow:active,
+.menu-trigger:active,
+.hero-carousel-arrow:active,
+.lightbox-close:active,
+.lightbox-prev:active,
+.lightbox-next:active {
+  transform: scale(0.92);
+  transition-duration: 0.1s;
+}
+.lightbox-prev:active { transform: translateY(-50%) scale(0.92); }
+.lightbox-next:active { transform: translateY(-50%) scale(0.92); }
+.hero-carousel-dots button:active { transform: scale(0.85); transition-duration: 0.1s; }
+.nav-main-list a:active, .nav-main-list button.nav-expand:active {
+  opacity: 0.55;
+  transition-duration: 0.1s;
 }
 
 /* ---------- Header & Header Wrapper ---------- */
@@ -1788,4 +1835,42 @@ html:not(.js) .gallery-zoom { display: none; }
   .spotlight-card.is-featured .spotlight-media { order: 0; min-height: 0; aspect-ratio: 16 / 10; }
   .spotlight-card.is-featured .spotlight-media::after { background: linear-gradient(0deg, var(--spot-surface) 0%, rgba(20, 38, 28, 0) 42%); }
   .spotlight-head { margin-bottom: 36px; }
+}
+
+/* ---------- Reduced motion ----------
+   Ambient/looping motion (the logo marquee) and scroll-triggered slide-up
+   reveals are the two vestibular-risk patterns on this site. Reduced motion
+   keeps the marquee still and swaps the reveal's slide for a plain, short
+   opacity cross-fade rather than removing the feedback entirely. The hero
+   carousel's own transition is already an opacity cross-fade (no transform),
+   so it needs no change here — its auto-advance timer is paused in JS instead. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  [data-aos] {
+    transform: none;
+    transition: opacity 0.2s ease;
+  }
+}
+
+/* ---------- Reduced transparency ----------
+   Give every backdrop-filter surface a frostier, near-solid fallback instead
+   of blur when the user has asked for less transparency. */
+@media (prefers-reduced-transparency: reduce) {
+  .header-wrapper .site-header,
+  .header-wrapper.is-solid .site-header {
+    background: var(--off-white);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .hero-rating-badge {
+    background: rgba(16, 30, 22, 0.97);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .hero-carousel-arrow {
+    background: rgba(20, 30, 24, 0.75);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
