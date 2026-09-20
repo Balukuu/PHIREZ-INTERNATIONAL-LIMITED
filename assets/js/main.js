@@ -438,6 +438,16 @@
         var pool = visible.length ? visible : galleryItems;
         var idx = typeof targetItem === 'number' ? targetItem : pool.indexOf(targetItem);
         if (idx === -1) idx = 0;
+        /* Materialize from the clicked thumbnail (§7/§12: anchor to source,
+           don't just fade) instead of growing from a fixed center point. */
+        var originEl = typeof targetItem === 'number' ? pool[idx] : targetItem;
+        if (originEl) {
+          var rect = originEl.getBoundingClientRect();
+          var originX = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+          var originY = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+          lightbox.style.setProperty('--lb-origin-x', Math.max(10, Math.min(90, originX)) + '%');
+          lightbox.style.setProperty('--lb-origin-y', Math.max(10, Math.min(90, originY)) + '%');
+        }
         renderLightbox(idx);
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
