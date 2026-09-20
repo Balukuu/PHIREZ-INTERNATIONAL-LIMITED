@@ -289,7 +289,7 @@ button:hover .hover-arrow .arrow-2 {
 }
 .nav-drop-eyebrow { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--optron-orange-dark); margin-bottom: 20px; }
 .nav-drop-eyebrow span { color: var(--slate-400); font-weight: 500; text-transform: none; letter-spacing: 0; }
-.nav-drop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.nav-drop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .nav-drop-tile { display: block; border-radius: var(--radius-sm); overflow: hidden; background: var(--off-white); border: 1px solid var(--border-light); transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease); }
 .nav-drop-tile:hover { transform: translateY(-3px); border-color: var(--optron-orange); box-shadow: var(--shadow-card); }
 .nav-drop-tile .tile-media { aspect-ratio: 16/10; overflow: hidden; }
@@ -414,7 +414,7 @@ button:hover .hover-arrow .arrow-2 {
 .mega-tile p { color: var(--slate-400); font-size: 0.8125rem; line-height: 1.5; }
 
 .mega-divider { border: none; border-top: 1px solid var(--border-light); margin: 36px 0 28px; }
-.mega-logos { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.mega-logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
 .mega-logo-tile {
   background: var(--white); border: 1px solid var(--border-light); border-radius: var(--radius-sm);
   padding: 16px 8px; text-align: center; color: var(--slate-700);
@@ -598,6 +598,7 @@ html:not(.js) .marquee-track { animation: none; }
 .form-status.show { display: block; }
 .form-status.success { background: #E7F7EE; color: #1E7E42; border: 1px solid #B7E7C9; }
 .form-status.error { background: #FBEAEA; color: #B23A2E; border: 1px solid #F1C0BA; }
+.form-status.error a { color: inherit; font-weight: 600; text-decoration: underline; }
 
 /* ---------- Misc components ---------- */
 .hero {
@@ -1634,4 +1635,30 @@ html:not(.js) .gallery-zoom { display: none; }
   .container { padding: 0 18px; }
   .btn-group { width: 100%; }
   .btn-group .btn { width: 100%; justify-content: center; }
+}
+
+/* ---------- Floating WhatsApp chat button (all pages) ---------- */
+.whatsapp-fab {
+  position: fixed; right: 24px; bottom: 24px; z-index: 350;
+  display: inline-flex; align-items: center; gap: 0;
+  height: 58px; min-width: 58px; padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: #25D366; color: #fff; text-decoration: none;
+  box-shadow: 0 10px 28px rgba(19, 36, 27, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.25s var(--ease);
+}
+.whatsapp-fab svg { width: 28px; height: 28px; flex-shrink: 0; }
+.whatsapp-fab-label {
+  max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0;
+  font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600;
+  transition: max-width 0.3s var(--ease), opacity 0.2s var(--ease), margin 0.3s var(--ease);
+}
+.whatsapp-fab:hover, .whatsapp-fab:focus-visible {
+  background: #1EBE5A; transform: translateY(-3px); color: #fff;
+  box-shadow: 0 16px 34px rgba(19, 36, 27, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-fab:hover .whatsapp-fab-label, .whatsapp-fab:focus-visible .whatsapp-fab-label { max-width: 170px; opacity: 1; margin-left: 10px; }
+@media (max-width: 640px) {
+  .whatsapp-fab { right: 16px; bottom: 16px; height: 54px; min-width: 54px; padding: 0 13px; }
+  .whatsapp-fab-label { display: none; }
 }

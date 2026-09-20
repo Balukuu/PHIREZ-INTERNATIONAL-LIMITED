@@ -233,23 +233,33 @@
       var originalLabel = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
-      fetch(form.action, {
+      var payload = new FormData(form);
+      payload.set('_subject', 'Website enquiry: ' + (payload.get('subject') || 'General') + ' — ' + (payload.get('name') || ''));
+      fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST',
-        body: new FormData(form),
+        body: payload,
         headers: { Accept: 'application/json' }
       }).then(function (res) {
-        if (res.ok) {
-          form.reset();
-          if (statusEl) {
-            statusEl.textContent = "Thank you — your message has been sent. Our team will get back to you shortly.";
-            statusEl.className = 'form-status show success';
-          }
-        } else {
-          throw new Error('Submission failed');
+        if (!res.ok) throw new Error('Submission failed');
+        return res.json();
+      }).then(function (data) {
+        if (data && (data.success === false || data.success === 'false')) throw new Error('Submission rejected');
+        form.reset();
+        if (statusEl) {
+          statusEl.textContent = "Thank you — your message has been sent. Our team will get back to you shortly.";
+          statusEl.className = 'form-status show success';
         }
       }).catch(function () {
         if (statusEl) {
-          statusEl.textContent = 'Something went wrong sending your message. Please email info@phirez.ug directly or try again.';
+          var fd = new FormData(form);
+          var body = (fd.get('message') || '') + '\n\n' + (fd.get('name') || '') + '\n' + (fd.get('email') || '');
+          var mailto = 'mailto:info@phirez.ug?subject=' + encodeURIComponent(fd.get('subject') || 'Website enquiry') +
+            '&body=' + encodeURIComponent(body);
+          statusEl.textContent = 'Something went wrong sending your message. ';
+          var link = document.createElement('a');
+          link.href = mailto;
+          link.textContent = 'Email it to info@phirez.ug instead';
+          statusEl.appendChild(link);
           statusEl.className = 'form-status show error';
         }
       }).finally(function () {
@@ -257,64 +267,66 @@
       });
     });
 
-    /* Pre-fill contact form fields from URL query parameters (?product=..., ?course=..., ?action=...) */
+    /* Pre-fill the subject + message from URL query parameters (?product=, ?course=,
+       ?action=, ?service=, ?sector=, ?project=). Subject strings must match the
+       <option> text in contact/index.html exactly. */
     if (window.location.search) {
       try {
         var params = new URLSearchParams(window.location.search);
-        var product = params.get('product');
-        var course = params.get('course');
-        var action = params.get('action');
         var subjectSelect = form.querySelector('#subject');
         var messageTextarea = form.querySelector('#message');
-
-        var productMap = {
-          'trimble-r12i': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'trimble-s-series': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'trimble-x7-x9': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'trimble-x12': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'trimble-tbc': 'Software Licensing: Esri GIS, Carlson & Autodesk',
-          'trimble-general': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'trimble-other': 'Equipment Inquiry: Trimble Survey Systems & GNSS',
-          'dji-enterprise-general': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
-          'dji-m350': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
-          'dji-dock3': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
-          'dji-zenmuse-l3': 'Equipment Inquiry: DJI Enterprise Drones & LiDAR',
-          'spectra-geospatial-general': 'Equipment Inquiry: Spectra Geospatial Systems',
-          'spectra-gnss': 'Equipment Inquiry: Spectra Geospatial Systems',
-          'spectra-focus': 'Equipment Inquiry: Spectra Geospatial Systems',
-          'spectra-ranger': 'Equipment Inquiry: Spectra Geospatial Systems',
-          'nikon-general': 'Equipment Inquiry: Nikon Optical Instruments',
-          'nikon-xf': 'Equipment Inquiry: Nikon Optical Instruments',
-          'nikon-ne100': 'Equipment Inquiry: Nikon Optical Instruments',
-          'nikon-ac2s': 'Equipment Inquiry: Nikon Optical Instruments',
-          'seafloor-general': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
-          'seafloor-echoboat': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
-          'seafloor-hydrone': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
-          'seafloor-hydrolite': 'Equipment Inquiry: Seafloor Systems Bathymetric USVs',
-          'us-radar-general': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
-          'us-radar-gpr': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
-          'us-radar-gprover': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
-          'us-radar-100series': 'Equipment Inquiry: US Radar Ground Penetrating Radar',
-          'us-radar-survey': 'Equipment Inquiry: US Radar Ground Penetrating Radar'
+        var SUBJ = {
+          geo: 'Geospatial & Spatial Data Infrastructure',
+          gis: 'GIS & Remote Sensing',
+          it: 'IT Consultancy & Supplies',
+          managed: 'IT Managed Services',
+          training: 'Professional Training & Consultancy',
+          general: 'General Enquiry'
         };
-
+        var label = function (slug) { return slug.replace(/-/g, ' ').toUpperCase(); };
         var matchedSubject = '';
         var noteContext = '';
 
+        var product = params.get('product');
+        var course = params.get('course');
+        var action = params.get('action') || params.get('service');
+        var sector = params.get('sector');
+        var project = params.get('project');
+
         if (product) {
-          matchedSubject = productMap[product] || 'Equipment Inquiry: Trimble Survey Systems & GNSS';
-          noteContext = 'I would like to request pricing, technical specifications, and availability for: ' + product.replace(/-/g, ' ').toUpperCase() + '.';
+          matchedSubject = SUBJ.geo;
+          if (/^(esri|dji|xgrids)/.test(product)) matchedSubject = SUBJ.gis;
+          else if (/^(ibm|it-)/.test(product)) matchedSubject = SUBJ.it;
+          noteContext = 'I would like to request pricing, technical specifications, and availability for: ' + label(product) + '.';
         } else if (course) {
-          matchedSubject = 'Professional Training & Capacity Building';
-          noteContext = 'I am interested in scheduling or learning more about the ' + course.replace(/-/g, ' ').toUpperCase() + ' training module.';
-        } else if (action === 'service') {
-          matchedSubject = 'Equipment Service, Calibration & Maintenance';
+          matchedSubject = SUBJ.training;
+          noteContext = 'I am interested in scheduling or learning more about the ' + label(course) + ' training module.';
+        } else if (action === 'service' || action === 'calibration') {
+          matchedSubject = SUBJ.geo;
           noteContext = 'I would like to request instrument calibration and maintenance service for our survey equipment.';
         } else if (action === 'support') {
-          matchedSubject = 'Technical Support & Field Diagnostics';
+          matchedSubject = SUBJ.general;
           noteContext = 'I am reaching out to request technical support for our geospatial hardware/software.';
         } else if (action === 'training') {
-          matchedSubject = 'Professional Training & Capacity Building';
+          matchedSubject = SUBJ.training;
+        } else if (action === 'sdi') {
+          matchedSubject = SUBJ.geo;
+          noteContext = 'I would like to discuss a spatial data infrastructure (SDI) project.';
+        } else if (action === 'consultancy') {
+          matchedSubject = SUBJ.it;
+          noteContext = 'I would like to discuss IT consultancy and supplies.';
+        } else if (action === 'assurance') {
+          matchedSubject = SUBJ.managed;
+          noteContext = 'I would like to discuss a technology assurance plan.';
+        } else if (action === 'contracting') {
+          matchedSubject = SUBJ.geo;
+          noteContext = 'I would like to discuss a contract survey and engineering project.';
+        } else if (sector) {
+          matchedSubject = SUBJ.geo;
+          noteContext = 'I would like to discuss geospatial solutions for the ' + sector.replace(/-/g, ' ') + ' sector.';
+        } else if (project) {
+          matchedSubject = SUBJ.geo;
+          noteContext = 'I am interested in a project similar to: ' + project.replace(/-/g, ' ') + '.';
         }
 
         if (matchedSubject && subjectSelect) {

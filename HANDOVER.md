@@ -14,7 +14,7 @@ A separate "Optron-style" redesign (top utility bar, horizontal desktop nav, ora
 ## 1. Blockers — must be resolved before launch
 
 1. **Domain.** `phirez.com` currently redirects to a GoDaddy "domain for sale" parking page. It must be renewed/reclaimed and pointed at the new hosting before this site goes live.
-2. **Contact form endpoint.** [contact.html](contact.html) posts to `https://formspree.io/f/YOUR_FORM_ID` — a placeholder. The form's JS (validation, fetch, success/error states) is fully wired and Formspree-compatible; you only need to create a free/paid [Formspree](https://formspree.io) account (or swap in EmailJS / a serverless function) and replace `YOUR_FORM_ID` in the `<form action="...">` attribute with the real endpoint, and set it to deliver to `info@phirez.com`. Until this is done, the form will fail silently with the "Something went wrong" error state.
+2. **Contact form endpoint.** [contact/index.html](contact/index.html) posts to [FormSubmit](https://formsubmit.co) (`https://formsubmit.co/info@phirez.ug`; the JS upgrades it to the `/ajax/` endpoint). **One-time activation required:** after deploying, submit a test message from the live site, then click the confirmation link FormSubmit emails to info@phirez.ug — until then messages are not delivered. If a send fails, the form shows a fallback `mailto:` link.
 3. **Analytics.** No Google Analytics/Plausible property ID was supplied. A commented-out GA4 snippet is in the `<head>` of every page with a `GA_MEASUREMENT_ID` placeholder — uncomment it and replace the ID once you have a property, or swap in Plausible/another provider.
 
 ## 2. Content placeholders (clearly marked on the page itself)
@@ -57,7 +57,7 @@ The brief's Optron-style stat row asks for figures like "150+ projects" or "98% 
 ## 6. Before you publish
 
 - [ ] Reclaim/renew `phirez.com` and point it at hosting
-- [ ] Replace the Formspree placeholder in `contact.html` with a real endpoint and test that a submission actually reaches `info@phirez.com`
+- [ ] Activate FormSubmit: submit a test from the live contact form and confirm the activation email sent to info@phirez.ug
 - [ ] Add a real Analytics property ID (or remove the commented snippet if not wanted yet)
 - [ ] Supply team headshots/bios, real social media URLs, and (ideally) 2–3 real case studies
 - [ ] Have legal review `privacy.html` and `terms.html`
