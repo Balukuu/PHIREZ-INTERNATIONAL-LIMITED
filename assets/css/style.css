@@ -1757,8 +1757,8 @@ html:not(.js) .gallery-zoom { display: none; }
   position: relative; inset: auto; width: auto; max-width: none; object-fit: contain;
   filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.55));
 }
-.hero-agro-frame .hero-product-stage .hp-front { height: 100%; }
-.hero-agro-frame .hero-product-stage .hp-back { height: 88%; }
+.hero-agro-frame .hero-product-stage .hp-front { height: var(--hp-front-h, 100%); }
+.hero-agro-frame .hero-product-stage .hp-back { height: var(--hp-back-h, 88%); }
 @media (max-width: 1100px) {
   .hero-agro-frame .hero-product-stage { right: 6%; width: 30%; }
   .hero-agro-frame .hero-product-stage .hp-back { display: none; }
