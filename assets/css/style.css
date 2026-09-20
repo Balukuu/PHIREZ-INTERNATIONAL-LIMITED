@@ -618,9 +618,6 @@ html:not(.js) .marquee-track { animation: none; }
 }
 .page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .page-hero .hero-content { position: relative; z-index: 2; max-width: 720px; }
-.breadcrumb { font-size: 0.875rem; color: rgba(255,255,255,0.55); margin-bottom: 18px; display: flex; gap: 8px; align-items: center; }
-.breadcrumb a { color: rgba(255,255,255,0.75); }
-.breadcrumb a:hover { color: var(--white); }
 
 .divider-line { border: none; border-top: 1px solid var(--border-light); }
 
@@ -1390,7 +1387,7 @@ html:not(.js) .gallery-zoom { display: none; }
   background: #0D1911;
   overflow: hidden;
 }
-/* Photo runs full-bleed behind the floating header + breadcrumb; the top and bottom
+/* Photo runs full-bleed behind the floating header; the top and bottom
    edges fade into the page's dark green so there is no seam against the sections around it. */
 .hero-carousel::before, .hero-carousel::after {
   content: ''; position: absolute; left: 0; right: 0; z-index: 3; pointer-events: none;
@@ -1403,7 +1400,6 @@ html:not(.js) .gallery-zoom { display: none; }
   bottom: 0; height: 220px;
   background: linear-gradient(0deg, #0D1911 0%, rgba(13,25,17,0.78) 34%, rgba(13,25,17,0) 100%);
 }
-.hero-carousel-topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 4; padding: 108px 0 0; }
 .hero-carousel-track { position: relative; min-height: 720px; }
 .hero-carousel-slide {
   position: absolute; inset: 0;
@@ -1461,7 +1457,6 @@ html:not(.js) .gallery-zoom { display: none; }
 
 @media (max-width: 900px) {
   .hero-carousel-badge { display: none; }
-  .hero-carousel-topbar { padding-top: 92px; }
   .hero-carousel-track { min-height: 640px; }
   .hero-carousel-copy { padding: 70px 0 100px; }
   .hero-carousel::before { height: 240px; }
