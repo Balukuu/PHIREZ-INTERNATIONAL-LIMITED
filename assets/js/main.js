@@ -225,21 +225,19 @@
   }
 
   var panels = document.querySelectorAll('.nav-panel');
-  function resetPanels() {
-    panels.forEach(function (p) {
-      p.classList.toggle('is-active', p.dataset.panel === 'root');
+  var panelTriggers = document.querySelectorAll('[data-open-panel]');
+  function showPanel(name) {
+    panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === name); });
+    panelTriggers.forEach(function (t) {
+      t.setAttribute('aria-expanded', String(t.getAttribute('data-open-panel') === name));
     });
   }
-  document.querySelectorAll('[data-open-panel]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var target = btn.getAttribute('data-open-panel');
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === target); });
-    });
+  function resetPanels() { showPanel('root'); }
+  panelTriggers.forEach(function (btn) {
+    btn.addEventListener('click', function () { showPanel(btn.getAttribute('data-open-panel')); });
   });
   document.querySelectorAll('[data-back-panel]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === 'root'); });
-    });
+    btn.addEventListener('click', resetPanels);
   });
 
   document.addEventListener('keydown', function (e) {

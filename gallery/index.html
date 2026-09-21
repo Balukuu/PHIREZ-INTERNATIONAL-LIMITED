@@ -185,97 +185,86 @@
   </header>
 </div>
 
+<!-- NAV OVERLAY -->
 <nav class="nav-overlay" id="nav-overlay" aria-hidden="true" aria-label="Main navigation">
   <div class="nav-overlay-inner">
     <div class="nav-panels">
 
+      <!-- Root list: mirrors the desktop nav item for item -->
       <div class="nav-panel is-active" data-panel="root">
         <ul class="nav-main-list">
-          <li><a href="/">Home</a></li>
-          <li><button type="button" class="nav-expand" data-open-panel="solutions">Solutions &amp; Hardware <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><button type="button" class="nav-expand" data-open-panel="services">Services &amp; Lifecycle Support <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><a href="/industries/">Industries &amp; Workflows</a></li>
-          <li><a href="/projects/">Case Studies &amp; Projects</a></li>
-          <li><a href="/gallery/" aria-current="page">Field Gallery</a></li>
-          <li><a href="/training/">Training Academy</a></li>
-          <li><button type="button" class="nav-expand" data-open-panel="company">Company <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><a href="/contact/">Contact &amp; Support</a></li>
+          <li><button type="button" class="nav-expand" data-open-panel="solutions" aria-expanded="false" aria-controls="nav-panel-solutions">Solutions <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+          <li><a href="/solutions/#services-support">Services</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/projects/">Case Studies</a></li>
+          <li><a href="/gallery/" aria-current="page">Gallery</a></li>
+          <li><a href="/training/">Training</a></li>
+          <li><a href="/company/">Company</a></li>
         </ul>
       </div>
 
-      <!-- Solutions Mega Panel -->
-      <div class="nav-panel" data-panel="solutions">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Solutions &amp; Systems</h3>
-        <p class="nav-panel-sub">Authorised hardware, software, and integrated technologies for survey, drone mapping, and spatial data infrastructure.</p>
-        <div class="mega-grid">
-          <a class="mega-tile" href="/solutions/#gnss-positioning"><span class="num">01</span><h4>Trimble GNSS &amp; Total Stations</h4><p>R12i, Catalyst, S-Series Robotic Total Stations &amp; Trimble Access.</p></a>
-          <a class="mega-tile" href="/solutions/#drones-aerial"><span class="num">02</span><h4>DJI Enterprise Drones &amp; LiDAR</h4><p>Matrice 350 RTK, Mavic 3 Enterprise, Zenmuse L2 &amp; DJI Dock.</p></a>
-          <a class="mega-tile" href="/solutions/#laser-scanning"><span class="num">03</span><h4>3D Scanning &amp; Mobile SLAM</h4><p>Trimble X7/X9/X12 and XGRIDS handheld SLAM LiDAR.</p></a>
-          <a class="mega-tile" href="/solutions/#gpr-subsurface"><span class="num">04</span><h4>Subsurface Utility Detection</h4><p>US Radar GPR ground penetrating radar systems.</p></a>
-          <a class="mega-tile" href="/solutions/#hydrography"><span class="num">05</span><h4>Hydrographic Bathymetry</h4><p>Seafloor Systems EchoBoat USVs &amp; single/multibeam sonars.</p></a>
-          <a class="mega-tile" href="/esri-arcgis/"><span class="num">06</span><h4>Esri Enterprise GIS &amp; SDI</h4><p>ArcGIS Pro, ArcGIS Enterprise, Field Maps &amp; spatial cloud portals.</p></a>
-          <a class="mega-tile" href="/autodesk/"><span class="num">07</span><h4>Carlson &amp; Autodesk Software</h4><p>Carlson SurvCE, AutoCAD Civil 3D, and BIM workflows.</p></a>
-          <a class="mega-tile" href="/solutions/#system-integration"><span class="num">08</span><h4>IT Infrastructure &amp; Integration</h4><p>Enterprise servers, telemetry, structured cabling &amp; ERP.</p></a>
-          <a class="mega-tile" href="/datamine-software/"><span class="num">09</span><h4>Mine Geology &amp; Resource Modelling</h4><p>Datamine Studio RM, Studio Geo &amp; Sirovision for exploration and mining.</p></a>
-          <a class="mega-tile" href="/ibm-tape/"><span class="num">10</span><h4>IBM Tape Storage &amp; Archive</h4><p>TS4500, TS2900 &amp; TS7700 enterprise backup and long-term data archive.</p></a>
+      <!-- Solutions: the same partner-brand tiles as the desktop dropdown -->
+      <div class="nav-panel" id="nav-panel-solutions" data-panel="solutions">
+        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>Back</button>
+        <h3 class="nav-panel-heading">Solutions</h3>
+        <a class="nav-panel-all" href="/solutions/">View all solutions <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="nav-drop-eyebrow">Partner Brands <span>&mdash; authorised technology partners</span></div>
+        <div class="nav-drop-grid">
+          <a class="nav-drop-tile" href="/trimble/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/trimble-gnss-total-station-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">Trimble<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/dji-enterprise/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/dji-drone-flight-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">DJI Enterprise<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/esri-arcgis/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/esri-logo.jpg" alt="Esri" loading="lazy"></div>
+              <div class="tile-label">Esri ArcGIS<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/spectra-geospatial/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/spectra-geospatial-logo.jpg" alt="Spectra Geospatial" loading="lazy"></div>
+              <div class="tile-label">Spectra Geospatial<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/nikon/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/nikon-logo.png" alt="Nikon" loading="lazy"></div>
+              <div class="tile-label">Nikon Precision<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/us-radar/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/usradar-logo.jpg" alt="US Radar" loading="lazy"></div>
+              <div class="tile-label">US Radar<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/seafloor-systems/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/seafloor-echoboat-usv-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">Seafloor Systems<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/solutions/#laser-scanning">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/xgrids-slam-scanner-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">XGRIDS<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/autodesk/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/autodesk-logo.jpg" alt="Autodesk" loading="lazy"></div>
+              <div class="tile-label">Autodesk<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/solutions/#field-software">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/carlson-software-logo.jpg" alt="Carlson" loading="lazy"></div>
+              <div class="tile-label">Carlson Software<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/datamine-software/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/datamine-logo-01.png" alt="Datamine Software" loading="lazy"></div>
+              <div class="tile-label">Datamine Software<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/ibm-tape/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/ibm-ts4300-product-02.png" alt="IBM Storage" loading="lazy"></div>
+              <div class="tile-label">IBM Tape Storage<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
         </div>
-        <hr class="mega-divider">
-        <p class="nav-panel-sub" style="margin-bottom:16px;">Leading Global Partners</p>
-        <div class="mega-logos">
-          <a class="mega-logo-tile" href="/trimble/">Trimble</a>
-          <a class="mega-logo-tile" href="/dji-enterprise/">DJI Enterprise</a>
-          <a class="mega-logo-tile" href="/esri-arcgis/">Esri ArcGIS</a>
-          <a class="mega-logo-tile" href="/spectra-geospatial/">Spectra</a>
-          <a class="mega-logo-tile" href="/nikon/">Nikon</a>
-          <a class="mega-logo-tile" href="/us-radar/">US Radar</a>
-          <a class="mega-logo-tile" href="/seafloor-systems/">Seafloor</a>
-          <a class="mega-logo-tile" href="/solutions/#laser-scanning">XGRIDS</a>
-          <a class="mega-logo-tile" href="/autodesk/">Autodesk</a>
-          <a class="mega-logo-tile" href="/solutions/#field-software">Carlson</a>
-          <a class="mega-logo-tile" href="/datamine-software/">Datamine</a>
-          <a class="mega-logo-tile" href="/ibm-tape/">IBM Tape</a>
-        </div>
-      </div>
-
-      <!-- Services & Support Mega Panel -->
-      <div class="nav-panel" data-panel="services">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Comprehensive Services &amp; Lifecycle Support</h3>
-        <p class="nav-panel-sub">Protecting operational uptime across the working life of your precision instruments.</p>
-        <div class="mega-grid">
-          <a class="mega-tile" href="/solutions/#service-centre"><span class="num">01</span><h4>Certified Service &amp; Calibration</h4><p>Factory-standard optical collimator testing &amp; baseline EDM check.</p></a>
-          <a class="mega-tile" href="/solutions/#technical-support"><span class="num">02</span><h4>Technical HelpDesk Support</h4><p>Dedicated telephone, remote desk, and field troubleshooting.</p></a>
-          <a class="mega-tile" href="/training/"><span class="num">03</span><h4>Phirez Training Academy</h4><p>Blended practical courses for RTK GNSS, Drones, and ArcGIS Pro.</p></a>
-          <a class="mega-tile" href="/solutions/#consultancy-surveys"><span class="num">04</span><h4>Contract Survey &amp; Engineering</h4><p>Geodetic control, aerial LiDAR, and bathymetric surveys.</p></a>
-          <a class="mega-tile" href="/solutions/#spatial-infrastructure"><span class="num">05</span><h4>Spatial Data Infrastructure</h4><p>Enterprise GIS databases, cloud portals, and sensor telemetry.</p></a>
-          <a class="mega-tile" href="/solutions/#assurance-plan"><span class="num">06</span><h4>Technology Assurance Plan</h4><p>Warranty extensions, preventative maintenance &amp; loaner units.</p></a>
-        </div>
-      </div>
-
-      <!-- Company Mega Panel -->
-      <div class="nav-panel" data-panel="company">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Company</h3>
-        <p class="nav-panel-sub">Fifteen years delivering geospatial science, surveying instruments, and IT solutions across Uganda and East Africa.</p>
-        <div class="feature-cards">
-          <a class="feature-card" href="/company/#about">
-            <span class="tag">Who We Are</span>
-            <h3>About Phirez International</h3>
-            <p>Our story, multidisciplinary engineering team, and our role as Trimble Authorised Distributor and Esri Silver Partner.</p>
+        <div class="nav-drop-panel-footer">
+          <p>Not sure which instrument fits your workflow?</p>
+          <a href="/contact/" class="optron-link">
+            <span>Talk To A Specialist</span>
+            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
           </a>
-          <a class="feature-card" href="/company/#values">
-            <span class="tag">Our Purpose</span>
-            <h3>Precision, Integrity &amp; Innovation</h3>
-            <p>Empowering decision-makers across East Africa with reliable spatial intelligence and world-class technology.</p>
-          </a>
-        </div>
-        <hr class="mega-divider">
-        <div class="mega-grid">
-          <a class="mega-tile" href="/company/#about"><span class="num">01</span><h4>About Us</h4><p>Our history and heritage since 2011.</p></a>
-          <a class="mega-tile" href="/company/#divisions"><span class="num">02</span><h4>Multidisciplinary Team</h4><p>Geodesists, GIS architects &amp; IT specialists.</p></a>
-          <a class="mega-tile" href="/company/#careers"><span class="num">03</span><h4>Careers</h4><p>Build the future of African geospatial tech.</p></a>
-          <a class="mega-tile" href="/solutions/#partners"><span class="num">04</span><h4>Authorised Partners</h4><p>Trimble, DJI, Esri, US Radar &amp; more.</p></a>
         </div>
       </div>
 
@@ -294,10 +283,6 @@
           <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
         </span>
       </a>
-      <label class="nav-search">
-        <svg width="18" height="18"><use href="#i-search"/></svg>
-        <input type="search" placeholder="Search systems, solutions, support…" aria-label="Search">
-      </label>
     </div>
   </div>
 </nav>

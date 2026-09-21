@@ -161,93 +161,81 @@
   <div class="nav-overlay-inner">
     <div class="nav-panels">
 
+      <!-- Root list: mirrors the desktop nav item for item -->
       <div class="nav-panel is-active" data-panel="root">
         <ul class="nav-main-list">
-          <li><a href="/">Home</a></li>
-          <li><button type="button" class="nav-expand" data-open-panel="solutions">Solutions &amp; Hardware <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><button type="button" class="nav-expand" data-open-panel="services">Services &amp; Lifecycle Support <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><a href="/industries/">Industries &amp; Workflows</a></li>
-          <li><a href="/projects/" aria-current="page">Case Studies &amp; Projects</a></li>
-          <li><a href="/gallery/">Field Gallery</a></li>
-          <li><a href="/training/">Training Academy</a></li>
-          <li><button type="button" class="nav-expand" data-open-panel="company">Company <svg class="chevron" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button></li>
-          <li><a href="/contact/">Contact &amp; Support</a></li>
+          <li><button type="button" class="nav-expand" data-open-panel="solutions" aria-expanded="false" aria-controls="nav-panel-solutions">Solutions <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+          <li><a href="/solutions/#services-support">Services</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li><a href="/projects/" aria-current="page">Case Studies</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/training/">Training</a></li>
+          <li><a href="/company/">Company</a></li>
         </ul>
       </div>
 
-      <!-- Solutions Mega Panel -->
-      <div class="nav-panel" data-panel="solutions">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Solutions &amp; Systems</h3>
-        <p class="nav-panel-sub">Authorised hardware, software, and integrated technologies for survey, drone mapping, and spatial data infrastructure.</p>
-        <div class="mega-grid">
-          <a class="mega-tile" href="/solutions/#gnss-positioning"><span class="num">01</span><h4>Trimble GNSS &amp; Total Stations</h4><p>R12i, Catalyst, S-Series Robotic Total Stations &amp; Trimble Access.</p></a>
-          <a class="mega-tile" href="/solutions/#drones-aerial"><span class="num">02</span><h4>DJI Enterprise Drones &amp; LiDAR</h4><p>Matrice 350 RTK, Mavic 3 Enterprise, Zenmuse L2 &amp; DJI Dock.</p></a>
-          <a class="mega-tile" href="/solutions/#laser-scanning"><span class="num">03</span><h4>3D Scanning &amp; Mobile SLAM</h4><p>Trimble X7/X9/X12 and XGRIDS handheld SLAM LiDAR.</p></a>
-          <a class="mega-tile" href="/solutions/#gpr-subsurface"><span class="num">04</span><h4>Subsurface Utility Detection</h4><p>US Radar GPR ground penetrating radar systems.</p></a>
-          <a class="mega-tile" href="/solutions/#hydrography"><span class="num">05</span><h4>Hydrographic Bathymetry</h4><p>Seafloor Systems EchoBoat USVs &amp; single/multibeam sonars.</p></a>
-          <a class="mega-tile" href="/esri-arcgis/"><span class="num">06</span><h4>Esri Enterprise GIS &amp; SDI</h4><p>ArcGIS Pro, ArcGIS Enterprise, Field Maps &amp; spatial cloud portals.</p></a>
-          <a class="mega-tile" href="/autodesk/"><span class="num">07</span><h4>Carlson &amp; Autodesk Software</h4><p>Carlson SurvCE, AutoCAD Civil 3D, and BIM workflows.</p></a>
-          <a class="mega-tile" href="/solutions/#system-integration"><span class="num">08</span><h4>IT Infrastructure &amp; Integration</h4><p>Enterprise servers, telemetry, structured cabling &amp; ERP.</p></a>
-          <a class="mega-tile" href="/datamine-software/"><span class="num">09</span><h4>Mine Geology &amp; Resource Modelling</h4><p>Datamine Studio RM, Studio Geo &amp; Sirovision for exploration and mining.</p></a>
-          <a class="mega-tile" href="/ibm-tape/"><span class="num">10</span><h4>IBM Tape Storage &amp; Archive</h4><p>TS4500, TS2900 &amp; TS7700 enterprise backup and long-term data archive.</p></a>
+      <!-- Solutions: the same partner-brand tiles as the desktop dropdown -->
+      <div class="nav-panel" id="nav-panel-solutions" data-panel="solutions">
+        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>Back</button>
+        <h3 class="nav-panel-heading">Solutions</h3>
+        <a class="nav-panel-all" href="/solutions/">View all solutions <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="nav-drop-eyebrow">Partner Brands <span>&mdash; authorised technology partners</span></div>
+        <div class="nav-drop-grid">
+          <a class="nav-drop-tile" href="/trimble/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/trimble-gnss-total-station-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">Trimble<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/dji-enterprise/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/dji-drone-flight-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">DJI Enterprise<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/esri-arcgis/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/esri-logo.jpg" alt="Esri" loading="lazy"></div>
+              <div class="tile-label">Esri ArcGIS<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/spectra-geospatial/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/spectra-geospatial-logo.jpg" alt="Spectra Geospatial" loading="lazy"></div>
+              <div class="tile-label">Spectra Geospatial<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/nikon/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/nikon-logo.png" alt="Nikon" loading="lazy"></div>
+              <div class="tile-label">Nikon Precision<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/us-radar/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/usradar-logo.jpg" alt="US Radar" loading="lazy"></div>
+              <div class="tile-label">US Radar<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/seafloor-systems/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/seafloor-echoboat-usv-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">Seafloor Systems<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile" href="/solutions/#laser-scanning">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/xgrids-slam-scanner-01.jpg" alt="" loading="lazy"></div>
+              <div class="tile-label">XGRIDS<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/autodesk/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/autodesk-logo.jpg" alt="Autodesk" loading="lazy"></div>
+              <div class="tile-label">Autodesk<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/solutions/#field-software">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/carlson-software-logo.jpg" alt="Carlson" loading="lazy"></div>
+              <div class="tile-label">Carlson Software<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/datamine-software/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/datamine-logo-01.png" alt="Datamine Software" loading="lazy"></div>
+              <div class="tile-label">Datamine Software<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
+            <a class="nav-drop-tile icon-only" href="/ibm-tape/">
+              <div class="tile-media"><img src="/assets/images/vendor-equipment/ibm-ts4300-product-02.png" alt="IBM Storage" loading="lazy"></div>
+              <div class="tile-label">IBM Tape Storage<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
+            </a>
         </div>
-        <hr class="mega-divider">
-        <p class="nav-panel-sub" style="margin-bottom:16px;">Leading Global Partners</p>
-        <div class="mega-logos">
-          <a class="mega-logo-tile" href="/trimble/">Trimble</a>
-          <a class="mega-logo-tile" href="/dji-enterprise/">DJI Enterprise</a>
-          <a class="mega-logo-tile" href="/esri-arcgis/">Esri ArcGIS</a>
-          <a class="mega-logo-tile" href="/spectra-geospatial/">Spectra</a>
-          <a class="mega-logo-tile" href="/nikon/">Nikon</a>
-          <a class="mega-logo-tile" href="/us-radar/">US Radar</a>
-          <a class="mega-logo-tile" href="/seafloor-systems/">Seafloor</a>
-          <a class="mega-logo-tile" href="/solutions/#laser-scanning">XGRIDS</a>
-          <a class="mega-logo-tile" href="/autodesk/">Autodesk</a>
-          <a class="mega-logo-tile" href="/solutions/#field-software">Carlson</a>
-          <a class="mega-logo-tile" href="/datamine-software/">Datamine</a>
-          <a class="mega-logo-tile" href="/ibm-tape/">IBM Tape</a>
-        </div>
-      </div>
-
-      <!-- Services & Support Mega Panel -->
-      <div class="nav-panel" data-panel="services">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Comprehensive Services &amp; Lifecycle Support</h3>
-        <p class="nav-panel-sub">Protecting operational uptime across the working life of your precision instruments.</p>
-        <div class="mega-grid">
-          <a class="mega-tile" href="/solutions/#service-centre"><span class="num">01</span><h4>Certified Service &amp; Calibration</h4><p>Factory-standard optical collimator testing &amp; baseline EDM check.</p></a>
-          <a class="mega-tile" href="/solutions/#technical-support"><span class="num">02</span><h4>Technical HelpDesk Support</h4><p>Dedicated telephone, remote desk, and field troubleshooting.</p></a>
-          <a class="mega-tile" href="/training/"><span class="num">03</span><h4>Phirez Training Academy</h4><p>Blended practical courses for RTK GNSS, Drones, and ArcGIS Pro.</p></a>
-          <a class="mega-tile" href="/solutions/#consultancy-surveys"><span class="num">04</span><h4>Contract Survey &amp; Engineering</h4><p>Geodetic control, aerial LiDAR, and bathymetric surveys.</p></a>
-          <a class="mega-tile" href="/solutions/#spatial-infrastructure"><span class="num">05</span><h4>Spatial Data Infrastructure</h4><p>Enterprise GIS databases, cloud portals, and sensor telemetry.</p></a>
-          <a class="mega-tile" href="/solutions/#assurance-plan"><span class="num">06</span><h4>Technology Assurance Plan</h4><p>Warranty extensions, preventative maintenance &amp; loaner units.</p></a>
-        </div>
-      </div>
-
-      <!-- Company Mega Panel -->
-      <div class="nav-panel" data-panel="company">
-        <button type="button" class="nav-back" data-back-panel><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg>Back</button>
-        <h3 class="nav-panel-heading">Company</h3>
-        <p class="nav-panel-sub">Fifteen years delivering geospatial science, surveying instruments, and IT solutions across Uganda and East Africa.</p>
-        <div class="feature-cards">
-          <a class="feature-card" href="/company/#about">
-            <span class="tag">Who We Are</span>
-            <h3>About Phirez International</h3>
-            <p>Our story, multidisciplinary engineering team, and our role as Trimble Authorised Distributor and Esri Silver Partner.</p>
+        <div class="nav-drop-panel-footer">
+          <p>Not sure which instrument fits your workflow?</p>
+          <a href="/contact/" class="optron-link">
+            <span>Talk To A Specialist</span>
+            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
           </a>
-          <a class="feature-card" href="/company/#values">
-            <span class="tag">Our Purpose</span>
-            <h3>Precision, Integrity &amp; Innovation</h3>
-            <p>Empowering decision-makers across East Africa with reliable spatial intelligence and world-class technology.</p>
-          </a>
-        </div>
-        <hr class="mega-divider">
-        <div class="mega-grid">
-          <a class="mega-tile" href="/company/#about"><span class="num">01</span><h4>About Us</h4><p>Our history and heritage since 2011.</p></a>
-          <a class="mega-tile" href="/company/#divisions"><span class="num">02</span><h4>Multidisciplinary Team</h4><p>Geodesists, GIS architects &amp; IT specialists.</p></a>
-          <a class="mega-tile" href="/company/#careers"><span class="num">03</span><h4>Careers</h4><p>Build the future of African geospatial tech.</p></a>
-          <a class="mega-tile" href="/solutions/#partners"><span class="num">04</span><h4>Authorised Partners</h4><p>Trimble, DJI, Esri, US Radar &amp; more.</p></a>
         </div>
       </div>
 
@@ -266,10 +254,6 @@
           <svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg>
         </span>
       </a>
-      <label class="nav-search">
-        <svg width="18" height="18"><use href="#i-search"/></svg>
-        <input type="search" placeholder="Search systems, solutions, support…" aria-label="Search">
-      </label>
     </div>
   </div>
 </nav>
@@ -314,159 +298,177 @@
     <div class="hero-agro-spacer"></div>
   </section>
 
-  <!-- CLIENT STRIP -->
-  <section class="section-dark" style="background:var(--navy-950); padding:70px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
+  <!-- QUICK NAVIGATION ANCHORS -->
+  <section class="section-tight" style="background:#0D1911; border-bottom:1px solid rgba(255,255,255,0.08);">
     <div class="container">
-      <div style="text-align:center; max-width:760px; margin:0 auto 36px;" data-aos>
-        <h2>Trusted By Leading <span style="color:var(--optron-orange);">Institutions</span> Across East Africa</h2>
-      </div>
-      <div class="client-grid">
-        <div class="client-card" data-aos>World Food Programme (WFP)</div>
-        <div class="client-card" data-aos>UN OCHA</div>
-        <div class="client-card" data-aos>MTN Uganda</div>
-        <div class="client-card" data-aos>Wildlife Conservation Society</div>
-        <div class="client-card" data-aos>Uganda National Roads Authority (UNRA)</div>
-        <div class="client-card" data-aos>National Forestry Authority (NFA)</div>
-        <div class="client-card" data-aos>Private Sector Foundation Uganda</div>
-        <div class="client-card" data-aos>USAID</div>
-        <div class="client-card" data-aos>National Wetlands Programme</div>
-        <div class="client-card" data-aos>UNDP</div>
-        <div class="client-card" data-aos>IOM</div>
-        <div class="client-card" data-aos>UNICEF</div>
-        <div class="client-card" data-aos>Uganda Electricity Transmission (UETCL)</div>
-        <div class="client-card" data-aos>AMREF Health Africa</div>
-        <div class="client-card" data-aos>WWF</div>
-        <div class="client-card" data-aos>National Environment Management (NEMA)</div>
-        <div class="client-card" data-aos>Uganda Bureau of Statistics (UBOS)</div>
-        <div class="client-card" data-aos>Umeme</div>
-        <div class="client-card" data-aos>Kampala Capital City Authority (KCCA)</div>
-        <div class="client-card" data-aos>Uganda Wildlife Authority (UWA)</div>
+      <div class="filter-tabs-row" style="margin-bottom:0; justify-content:center;">
+        <a href="#geodetic-control" class="tab-filter-btn">Geodetic Control</a>
+        <a href="#quarry-volumetrics" class="tab-filter-btn">Quarry Volumetrics</a>
+        <a href="#precision-agri" class="tab-filter-btn">Precision Agriculture</a>
+        <a href="#highway-stakeout" class="tab-filter-btn">Highway Stakeout</a>
+        <a href="#utility-detection" class="tab-filter-btn">Utility Detection</a>
+        <a href="/contact/" class="tab-filter-btn" style="background:var(--optron-orange); color:#fff; border-color:var(--optron-orange);">Request A Quote</a>
       </div>
     </div>
   </section>
 
-
-  <!-- CAPABILITY SPOTLIGHTS (Optron Format) -->
-  <section class="section-dark" style="background:#0A160F; padding:90px 0;">
+  <!-- CAPABILITY SPOTLIGHTS -->
+  <section class="pj-section" id="spotlights">
     <div class="container">
 
-      <div style="text-align:center; max-width:760px; margin:0 auto 48px;" data-aos>
-        <h2>Capability Spotlights</h2>
-        <p style="margin-top:14px; color:var(--slate-300);">Illustrative examples of the type of work we deliver, built around real Phirez field photography — not named case studies with client-attributed results. Browse <a href="/gallery/" class="optron-link" style="display:inline-flex;">the full Field Gallery</a> or <a href="/contact/" class="optron-link" style="display:inline-flex;">get in touch</a> to discuss your own project.</p>
-      </div>
+      <header class="pj-head" data-aos>
+        <span class="pj-eyebrow">Capability Spotlights</span>
+        <h2>Precision Technology, <span class="text-accent">Applied In The Field</span></h2>
+        <p>Illustrative examples of the type of work we deliver, built around real Phirez field photography — not named case studies with client-attributed results. Browse <a href="/gallery/">the full Field Gallery</a> or <a href="/contact/">get in touch</a> to discuss your own project.</p>
+      </header>
 
-      <!-- Capability 1 -->
-      <div class="optron-case-study" id="geodetic-control" data-aos>
-        <div class="case-media">
-          <img src="/assets/images/gallery/thumbs/gnss-static-setup-01.jpg" alt="Trimble GNSS receivers on heavy-duty tripods performing static benchmark measurements." loading="lazy">
+      <div class="pj-list">
+
+        <article class="pj-card" id="geodetic-control" data-aos>
+          <div class="pj-media">
+          <img src="/assets/images/gallery/medium/gnss-static-setup-01.webp" alt="Trimble GNSS receivers on heavy-duty tripods performing static benchmark measurements." width="1200" height="675" loading="lazy" decoding="async">
+          <span class="pj-tag">Infrastructure Benchmark</span>
+          <span class="pj-num" aria-hidden="true">01</span>
         </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span>Infrastructure Benchmark</span>
+          <div class="pj-body">
+            <h3>National Geodetic Control &amp; Infrastructure Cadastral Survey</h3>
+            <ol class="pj-steps">
+              <li><span class="pj-step-label">The Challenge</span><p>Establishing reliable geodetic baselines across expansive, rugged terrain with intermittent cellular coverage — the kind of ground truth road construction and legal cadastre depend on.</p></li>
+              <li><span class="pj-step-label">The Solution</span><p>Multi-frequency Trimble R12i GNSS receivers running long-session dual-frequency static observations, tied to the International GNSS Service (IGS) reference frame and processed in Trimble Business Center (TBC) with least-squares network adjustments.</p></li>
+              <li class="is-outcome"><span class="pj-step-label">What This Delivers</span><p>High-accuracy control points suitable as the spatial foundation for engineering-grade infrastructure design and legal parcel cadastre.</p></li>
+            </ol>
+            <div class="pj-tech"><span class="pj-tech-label">Technology</span><a class="pj-chip" href="/trimble/">Trimble R12i GNSS</a><a class="pj-chip" href="/trimble/">Trimble Business Center</a></div>
+            <a href="/contact/?project=geodetic" class="optron-link pj-cta">
+              <span>Discuss Geodetic Solutions</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
           </div>
-          <h3>National Geodetic Control &amp; Infrastructure Cadastral Survey</h3>
-          <p><strong>The Challenge:</strong> Establishing reliable geodetic baselines across expansive, rugged terrain with intermittent cellular coverage — the kind of ground truth road construction and legal cadastre depend on.</p>
-          <p><strong>The Solution:</strong> Multi-frequency Trimble R12i GNSS receivers running long-session dual-frequency static observations, tied to the International GNSS Service (IGS) reference frame and processed in Trimble Business Center (TBC) with least-squares network adjustments.</p>
-          <p><strong>What This Delivers:</strong> High-accuracy control points suitable as the spatial foundation for engineering-grade infrastructure design and legal parcel cadastre.</p>
-          <a href="/contact/?project=geodetic" class="optron-link">
-            <span>Discuss Geodetic Solutions</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
+        </article>
+        <article class="pj-card reverse" id="quarry-volumetrics" data-aos>
+          <div class="pj-media">
+          <img src="/assets/images/gallery/medium/drone-survey-quarry-01.webp" alt="Aerial survey crew setting up a drone at a commercial aggregate quarry." width="1200" height="675" loading="lazy" decoding="async">
+          <span class="pj-tag">Autonomous LiDAR Mapping</span>
+          <span class="pj-num" aria-hidden="true">02</span>
         </div>
-      </div>
-
-      <!-- Capability 2 -->
-      <div class="optron-case-study" id="quarry-volumetrics" data-aos>
-        <div class="case-media">
-          <img src="/assets/images/gallery/thumbs/drone-survey-quarry-01.jpg" alt="Aerial survey crew setting up a drone at a commercial aggregate quarry." loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span>Autonomous LiDAR Mapping</span>
+          <div class="pj-body">
+            <h3>Aerial Drone Photogrammetry &amp; Quarry Volumetric Auditing</h3>
+            <ol class="pj-steps">
+              <li><span class="pj-step-label">The Challenge</span><p>Manual aggregate inventory reconciliation traditionally means surveyors climbing hazardous rock stockpiles with GNSS poles — slow, and a real safety risk.</p></li>
+              <li><span class="pj-step-label">The Solution</span><p>A DJI Matrice 350 RTK drone with a Zenmuse L2 LiDAR sensor flies automated terrain-following lines. Point clouds are classified in DJI Terra and cut/fill volumes calculated in Carlson Mining.</p></li>
+              <li class="is-outcome"><span class="pj-step-label">What This Delivers</span><p>Faster survey turnaround with no personnel exposed to unstable stockpile terrain, and volumetric outputs suitable for inventory reconciliation and audit reporting.</p></li>
+            </ol>
+            <div class="pj-tech"><span class="pj-tech-label">Technology</span><a class="pj-chip" href="/dji-enterprise/">DJI Matrice 350 RTK</a><a class="pj-chip" href="/dji-enterprise/">Zenmuse L2 LiDAR</a><a class="pj-chip" href="/dji-enterprise/">DJI Terra</a><a class="pj-chip" href="/autodesk/">Carlson Mining</a></div>
+            <a href="/contact/?project=quarry-volumetrics" class="optron-link pj-cta">
+              <span>Inquire About Mining Volumetrics</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
           </div>
-          <h3>Aerial Drone Photogrammetry &amp; Quarry Volumetric Auditing</h3>
-          <p><strong>The Challenge:</strong> Manual aggregate inventory reconciliation traditionally means surveyors climbing hazardous rock stockpiles with GNSS poles — slow, and a real safety risk.</p>
-          <p><strong>The Solution:</strong> A DJI Matrice 350 RTK drone with a Zenmuse L2 LiDAR sensor flies automated terrain-following lines. Point clouds are classified in DJI Terra and cut/fill volumes calculated in Carlson Mining.</p>
-          <p><strong>What This Delivers:</strong> Faster survey turnaround with no personnel exposed to unstable stockpile terrain, and volumetric outputs suitable for inventory reconciliation and audit reporting.</p>
-          <a href="/contact/?project=quarry-volumetrics" class="optron-link">
-            <span>Inquire About Mining Volumetrics</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
+        </article>
+        <article class="pj-card" id="precision-agri" data-aos>
+          <div class="pj-media">
+          <img src="/assets/images/gallery/medium/precision-agri-demo-01.webp" alt="Agricultural drone demonstration over a commercial sugarcane estate." width="1200" height="675" loading="lazy" decoding="async">
+          <span class="pj-tag">Multispectral NDVI Optimization</span>
+          <span class="pj-num" aria-hidden="true">03</span>
         </div>
-      </div>
-
-      <!-- Capability 3 -->
-      <div class="optron-case-study" id="precision-agri" data-aos>
-        <div class="case-media">
-          <img src="/assets/images/gallery/thumbs/precision-agri-demo-01.jpg" alt="Agricultural drone demonstration over a commercial sugarcane estate." loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span>Multispectral NDVI Optimization</span>
+          <div class="pj-body">
+            <h3>Multispectral Drone Imagery for Precision Crop Health Optimization</h3>
+            <ol class="pj-steps">
+              <li><span class="pj-step-label">The Challenge</span><p>Commercial sugarcane plantations applying uniform blanket fertilizer treatment risk over-fertilizing fertile sectors while under-treating compromised blocks.</p></li>
+              <li><span class="pj-step-label">The Solution</span><p>High-resolution multispectral drone flights generate Normalized Difference Vegetation Index (NDVI) analytics in ArcGIS Pro, producing prescription variable-rate application maps by block.</p></li>
+              <li class="is-outcome"><span class="pj-step-label">What This Delivers</span><p>Targeted, data-driven fertilizer application in place of blanket treatment — reducing input waste and supporting healthier, more consistent crop stands.</p></li>
+            </ol>
+            <div class="pj-tech"><span class="pj-tech-label">Technology</span><a class="pj-chip" href="/dji-enterprise/">Multispectral drones</a><a class="pj-chip" href="/esri-arcgis/">ArcGIS Pro</a></div>
+            <a href="/contact/?project=precision-agri" class="optron-link pj-cta">
+              <span>Discuss Precision Agri Solutions</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
           </div>
-          <h3>Multispectral Drone Imagery for Precision Crop Health Optimization</h3>
-          <p><strong>The Challenge:</strong> Commercial sugarcane plantations applying uniform blanket fertilizer treatment risk over-fertilizing fertile sectors while under-treating compromised blocks.</p>
-          <p><strong>The Solution:</strong> High-resolution multispectral drone flights generate Normalized Difference Vegetation Index (NDVI) analytics in ArcGIS Pro, producing prescription variable-rate application maps by block.</p>
-          <p><strong>What This Delivers:</strong> Targeted, data-driven fertilizer application in place of blanket treatment — reducing input waste and supporting healthier, more consistent crop stands.</p>
-          <a href="/contact/?project=precision-agri" class="optron-link">
-            <span>Discuss Precision Agri Solutions</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
+        </article>
+        <article class="pj-card reverse" id="highway-stakeout" data-aos>
+          <div class="pj-media">
+          <img src="/assets/images/gallery/medium/gnss-construction-site-02.webp" alt="Phirez survey team with GNSS rover on a civil infrastructure corridor." width="1200" height="675" loading="lazy" decoding="async">
+          <span class="pj-tag">Corridor Stakeout &amp; As&#8209;Built</span>
+          <span class="pj-num" aria-hidden="true">04</span>
         </div>
-      </div>
-
-      <!-- Capability 4 -->
-      <div class="optron-case-study" id="highway-stakeout" data-aos>
-        <div class="case-media">
-          <img src="/assets/images/gallery/thumbs/gnss-construction-site-02.jpg" alt="Phirez survey team with GNSS rover on a civil infrastructure corridor." loading="lazy">
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span>Corridor Stakeout &amp; As-Built</span>
+          <div class="pj-body">
+            <h3>Highway Corridor Stakeout &amp; As&#8209;Built Verification</h3>
+            <ol class="pj-steps">
+              <li><span class="pj-step-label">The Challenge</span><p>Contractors need to stake out centerline alignment points quickly while verifying earthwork layers against tight design tolerances to avoid costly rework.</p></li>
+              <li><span class="pj-step-label">The Solution</span><p>Trimble S-Series robotic total stations paired with Trimble TSC7 controllers running the Trimble Access Roading module, allowing one-person operation directly from CAD alignment files.</p></li>
+              <li class="is-outcome"><span class="pj-step-label">What This Delivers</span><p>Faster daily stakeout with one-person operation, and as-built verification data that supports compliance sign-off against design tolerances.</p></li>
+            </ol>
+            <div class="pj-tech"><span class="pj-tech-label">Technology</span><a class="pj-chip" href="/trimble/">Trimble S-Series</a><a class="pj-chip" href="/trimble/">Trimble TSC7</a><a class="pj-chip" href="/trimble/">Trimble Access Roading</a></div>
+            <a href="/contact/?project=highway-stakeout" class="optron-link pj-cta">
+              <span>Discuss Highway Solutions</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
           </div>
-          <h3>Highway Corridor Stakeout &amp; As-Built Verification</h3>
-          <p><strong>The Challenge:</strong> Contractors need to stake out centerline alignment points quickly while verifying earthwork layers against tight design tolerances to avoid costly rework.</p>
-          <p><strong>The Solution:</strong> Trimble S-Series robotic total stations paired with Trimble TSC7 controllers running the Trimble Access Roading module, allowing one-person operation directly from CAD alignment files.</p>
-          <p><strong>What This Delivers:</strong> Faster daily stakeout with one-person operation, and as-built verification data that supports compliance sign-off against design tolerances.</p>
-          <a href="/contact/?project=highway-stakeout" class="optron-link">
-            <span>Discuss Highway Solutions</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
+        </article>
+        <article class="pj-card" id="utility-detection" data-aos>
+          <div class="pj-media is-stage" style="--pj-glow:rgba(96, 140, 235, 0.22);">
+          <img src="/assets/images/vendor-equipment/usradar-gprover-product-02.avif" alt="US Radar GPR Rover ground penetrating radar cart with a GNSS antenna on a pole." width="670" height="1000" loading="lazy" decoding="async">
+          <span class="pj-tag">Subsurface Asset Mapping</span>
+          <span class="pj-num" aria-hidden="true">05</span>
         </div>
-      </div>
-
-      <!-- Capability 5 -->
-      <div class="optron-case-study" id="utility-detection" data-aos>
-        <div class="case-media" style="display:flex; align-items:center; justify-content:center; background:linear-gradient(150deg, var(--navy-900), var(--navy-850)); min-height:320px;">
-          <svg width="30%" viewBox="0 0 24 24" fill="none" style="color:var(--optron-orange); opacity:0.7;"><use href="#i-shield"/></svg>
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span>Subsurface Asset Mapping</span>
+          <div class="pj-body">
+            <h3>Subsurface Utility Line Tracing &amp; Fiber Optic Strike Prevention</h3>
+            <ol class="pj-steps">
+              <li><span class="pj-step-label">The Challenge</span><p>Expanding urban roads without reliable historical as-built drawings risks severing live power cables, pressurized water mains, and optical fiber lines during excavation.</p></li>
+              <li><span class="pj-step-label">The Solution</span><p>US Radar ground penetrating radar (GPR) coupled with Trimble Catalyst GNSS. Radargram cross-sections are converted into georeferenced 3D utility vectors.</p></li>
+              <li class="is-outcome"><span class="pj-step-label">What This Delivers</span><p>Georeferenced utility maps that reduce excavation risk and integrate directly into municipal spatial data infrastructure for future maintenance planning.</p></li>
+            </ol>
+            <div class="pj-tech"><span class="pj-tech-label">Technology</span><a class="pj-chip" href="/us-radar/">US Radar GPR</a><a class="pj-chip" href="/trimble/">Trimble Catalyst GNSS</a></div>
+            <a href="/contact/?project=utility-detection" class="optron-link pj-cta">
+              <span>Inquire About GPR Services</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
           </div>
-          <h3>Subsurface Utility Line Tracing &amp; Fiber Optic Strike Prevention</h3>
-          <p><strong>The Challenge:</strong> Expanding urban roads without reliable historical as-built drawings risks severing live power cables, pressurized water mains, and optical fiber lines during excavation.</p>
-          <p><strong>The Solution:</strong> US Radar ground penetrating radar (GPR) coupled with Trimble Catalyst GNSS. Radargram cross-sections are converted into georeferenced 3D utility vectors.</p>
-          <p><strong>What This Delivers:</strong> Georeferenced utility maps that reduce excavation risk and integrate directly into municipal spatial data infrastructure for future maintenance planning.</p>
-          <a href="/contact/?project=utility-detection" class="optron-link">
-            <span>Inquire About GPR Services</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
       </div>
 
+    </div>
+  </section>
+
+  <!-- CLIENT STRIP -->
+  <section class="pj-clients">
+    <div class="container">
+      <div class="pj-head pj-head-tight" data-aos>
+        <h2>Trusted By Leading <span class="text-accent">Institutions</span> Across East Africa</h2>
+      </div>
+      <div class="pj-client-grid">
+        <div class="pj-client" data-aos><small>WFP</small><span>World Food Programme</span></div>
+        <div class="pj-client" data-aos><span>UN OCHA</span></div>
+        <div class="pj-client" data-aos><span>MTN Uganda</span></div>
+        <div class="pj-client" data-aos><span>Wildlife Conservation Society</span></div>
+        <div class="pj-client" data-aos><small>UNRA</small><span>Uganda National Roads Authority</span></div>
+        <div class="pj-client" data-aos><small>NFA</small><span>National Forestry Authority</span></div>
+        <div class="pj-client" data-aos><span>Private Sector Foundation Uganda</span></div>
+        <div class="pj-client" data-aos><span>USAID</span></div>
+        <div class="pj-client" data-aos><span>National Wetlands Programme</span></div>
+        <div class="pj-client" data-aos><span>UNDP</span></div>
+        <div class="pj-client" data-aos><span>IOM</span></div>
+        <div class="pj-client" data-aos><span>UNICEF</span></div>
+        <div class="pj-client" data-aos><small>UETCL</small><span>Uganda Electricity Transmission</span></div>
+        <div class="pj-client" data-aos><span>AMREF Health Africa</span></div>
+        <div class="pj-client" data-aos><span>WWF</span></div>
+        <div class="pj-client" data-aos><small>NEMA</small><span>National Environment Management</span></div>
+        <div class="pj-client" data-aos><small>UBOS</small><span>Uganda Bureau of Statistics</span></div>
+        <div class="pj-client" data-aos><span>Umeme</span></div>
+        <div class="pj-client" data-aos><small>KCCA</small><span>Kampala Capital City Authority</span></div>
+        <div class="pj-client" data-aos><small>UWA</small><span>Uganda Wildlife Authority</span></div>
+      </div>
     </div>
   </section>
 
   <!-- CTA BAND -->
-  <section class="section-dark" style="background:var(--navy-950); padding:80px 0;">
+  <section class="pj-cta-section">
     <div class="container">
-      <div class="cta-band" style="background:linear-gradient(135deg, #1c3527 0%, #101d15 100%); border:1px solid rgba(143, 209, 79, 0.4); border-radius:var(--radius-lg); padding:60px 48px;" data-aos>
-        <div style="max-width:700px;">
-          <h2 style="font-size:clamp(1.75rem, 3.2vw, 2.4rem); margin-bottom:14px;">Bring Proven Precision To Your Next Project</h2>
-          <p style="color:rgba(255,255,255,0.8); font-size:1.0625rem;">Whether you need equipment supplied, field crews trained, or turn-key survey consulting delivered to the highest standards, Phirez is ready to partner with you.</p>
+      <div class="pj-cta-band" data-aos>
+        <div class="pj-cta-copy">
+          <h2>Bring Proven Precision To Your Next Project</h2>
+          <p>Whether you need equipment supplied, field crews trained, or turn-key survey consulting delivered to the highest standards, Phirez is ready to partner with you.</p>
         </div>
-        <div class="btn-group" style="align-self:center;">
+        <div class="btn-group">
           <a href="/contact/" class="btn btn-orange">
             <span>Talk To A Specialist</span>
             <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
