@@ -398,16 +398,16 @@ button:hover .hover-arrow .arrow-2 {
 .nav-overlay {
   position: fixed; inset: 0; z-index: 400;
   background: var(--off-white);
-  visibility: hidden; opacity: 0;
+  visibility: hidden; opacity: 0; pointer-events: none;
   transition: opacity 0.45s var(--ease), visibility 0.45s var(--ease);
   overflow-y: auto;
 }
-.nav-overlay.is-open { visibility: visible; opacity: 1; }
+.nav-overlay.is-open { visibility: visible; opacity: 1; pointer-events: auto; }
 .nav-overlay-inner {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex; flex-direction: column;
-  padding: 78px 24px 40px;
+  padding: 108px 24px 40px; /* clears the fixed floating header (~86px) so the first item and the Back button stay reachable */
   max-width: var(--container-w);
   margin: 0 auto;
 }
@@ -418,7 +418,8 @@ button:hover .hover-arrow .arrow-2 {
   transform: translateY(16px);
   transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
 }
-.nav-panel.is-active { position: relative; opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+.nav-panel.is-active { position: relative; }
+.nav-overlay.is-open .nav-panel.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
 
 .nav-main-list { display: flex; flex-direction: column; gap: 4px; }
 .nav-main-list li { border-bottom: 1px solid var(--border-light); }
@@ -1333,6 +1334,8 @@ html:not(.js) .gallery-zoom { display: none; }
   background: linear-gradient(200deg, rgba(15,26,20,0.78) 0%, rgba(15,26,20,0.32) 50%, rgba(15,26,20,0.08) 100%);
 }
 .hero-agro-frame > .container { position: relative; z-index: 2; }
+.hero-agro-rotator .hero-agro-frame > .container { pointer-events: none; }
+.hero-agro-rotator .hero-agro-content { pointer-events: auto; }
 .hero-agro-content {
   position: relative; z-index: 2;
   max-width: 620px;
@@ -1676,7 +1679,7 @@ html:not(.js) .gallery-zoom { display: none; }
 
 @media (max-width: 768px) {
   .menu-trigger .menu-label { display: none; }
-  .nav-overlay-inner { padding: 70px 18px 32px; }
+  .nav-overlay-inner { padding: 104px 18px 32px; }
   .mega-grid { grid-template-columns: 1fr 1fr; }
   .mega-logos { grid-template-columns: repeat(3, 1fr); }
   .nav-overlay-footer { flex-direction: column; align-items: flex-start; }
