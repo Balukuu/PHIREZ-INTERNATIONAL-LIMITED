@@ -46,51 +46,127 @@
     });
   });
 
-  /* ---------------- Rotating hero carousel (DJI Enterprise style) ----------------
-     Cross-fades a stack of [data-hero-carousel] .hero-carousel-slide elements on
-     an interval, with arrow/dot controls and hover-to-pause. Progressively
-     enhanced: with JS disabled the first slide (.is-active in the markup) is the
-     only one visible, so the hero still reads correctly. */
+  /* ---------------- Rotating hero carousel (DJI Enterprise page + homepage) ----------------
+     Cross-fades a stack of slides ([data-hero-carousel] .hero-carousel-slide /
+     .hero-product-slide) on a timer, with arrow/dot controls, swipe and keyboard.
+     Progressively enhanced: with JS disabled the first slide (.is-active in the
+     markup) is the only one visible, so the hero still reads correctly.
+     Autoplay pauses for: mouse hover (not touch, where mouseleave never fires),
+     keyboard focus, a hidden tab and a hero scrolled out of view. The pause keeps the
+     time remaining, so the CSS progress fill on the active dot stays in step. */
   document.querySelectorAll('[data-hero-carousel]').forEach(function (carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide, .hero-product-slide'));
     if (slides.length < 2) return;
     var dotsWrap = carousel.querySelector('.hero-carousel-dots');
-    var dots = slides.map(function (_, i) {
+    var liveRegion = carousel.querySelector('.hero-product-slides');
+    var dots = slides.map(function (slide, i) {
       var b = document.createElement('button');
+      var name = (slide.getAttribute('aria-label') || '').replace(/^\d+ of \d+:\s*/, '');
       b.type = 'button';
-      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      if (i === 0) b.classList.add('is-active');
+      b.setAttribute('aria-label', name ? 'Show ' + name : 'Go to slide ' + (i + 1));
+      if (i === 0) { b.classList.add('is-active'); b.setAttribute('aria-current', 'true'); }
       dotsWrap.appendChild(b);
       return b;
     });
     var current = 0;
     var interval = parseInt(carousel.dataset.interval, 10) || 6000;
-    var timer;
+    var remaining = interval;
+    var startedAt = 0;
+    var timer = null;
+    /* Reduced motion: keep the slide as a plain cross-fade the user drives
+       themselves (dots/arrows/swipe still work) instead of an unstoppable loop. */
+    var autoplay = !prefersReducedMotion;
+    var paused = { hover: false, focus: false, hidden: document.hidden, offscreen: false };
+    carousel.style.setProperty('--hero-interval', interval + 'ms');
+
+    function isPaused() { return paused.hover || paused.focus || paused.hidden || paused.offscreen; }
+    function setLive() {
+      if (liveRegion) liveRegion.setAttribute('aria-live', autoplay && !isPaused() ? 'off' : 'polite');
+    }
+    function schedule() {
+      clearTimeout(timer);
+      timer = null;
+      if (!autoplay || isPaused()) return;
+      startedAt = Date.now();
+      timer = setTimeout(function () { go(1); }, remaining);
+    }
+    function syncPause() {
+      carousel.classList.toggle('is-paused', isPaused());
+      setLive();
+      if (isPaused()) {
+        if (timer) remaining = Math.max(250, remaining - (Date.now() - startedAt));
+        clearTimeout(timer);
+        timer = null;
+      } else if (!timer) {
+        schedule();
+      }
+    }
 
     function show(index) {
+      var previous = current;
       current = (index + slides.length) % slides.length;
-      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === current); });
-      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+      if (current !== previous) {
+        /* The outgoing slide gets .is-leaving for its exit motion, then drops back
+           to the resting state once that has finished. */
+        var leaving = slides[previous];
+        leaving.classList.add('is-leaving');
+        clearTimeout(leaving._leaveTimer);
+        leaving._leaveTimer = setTimeout(function () { leaving.classList.remove('is-leaving'); }, 700);
+        slides[current].classList.remove('is-leaving');
+      }
+      slides.forEach(function (sl, i) { sl.classList.toggle('is-active', i === current); });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === current);
+        if (i === current) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+      });
+      /* Re-trigger the dot's progress fill even when the same dot is chosen again. */
+      var dot = dots[current];
+      dot.classList.remove('is-active');
+      void dot.offsetWidth;
+      dot.classList.add('is-active');
+      remaining = interval;
     }
-    function next() { show(current + 1); }
-    function prev() { show(current - 1); }
-    function restart() {
-      clearInterval(timer);
-      /* Reduced motion: keep the slide as a plain cross-fade the user drives
-         themselves (dots/arrows/swipe still work) instead of an unstoppable loop. */
-      if (prefersReducedMotion) return;
-      timer = setInterval(next, interval);
-    }
+    function go(delta) { show(current + delta); schedule(); }
 
     dots.forEach(function (d, i) {
-      d.addEventListener('click', function () { show(i); restart(); });
+      d.addEventListener('click', function () { show(i); schedule(); });
     });
     var prevBtn = carousel.querySelector('.hero-carousel-arrow.prev');
     var nextBtn = carousel.querySelector('.hero-carousel-arrow.next');
-    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restart(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { next(); restart(); });
-    carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
-    carousel.addEventListener('mouseleave', restart);
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); });
+
+    carousel.addEventListener('pointerenter', function (e) {
+      if (e.pointerType === 'mouse') { paused.hover = true; syncPause(); }
+    });
+    carousel.addEventListener('pointerleave', function (e) {
+      if (e.pointerType === 'mouse') { paused.hover = false; syncPause(); }
+    });
+    /* Only keyboard focus holds the rotation: a mouse click leaves focus on the
+       button, which must not freeze the carousel once the pointer has moved away. */
+    carousel.addEventListener('focusin', function (e) {
+      var keyboardFocus = false;
+      try { keyboardFocus = e.target.matches(':focus-visible'); } catch (err) { /* unsupported */ }
+      if (keyboardFocus) { paused.focus = true; syncPause(); }
+    });
+    carousel.addEventListener('focusout', function (e) {
+      if (!carousel.contains(e.relatedTarget)) { paused.focus = false; syncPause(); }
+    });
+    carousel.addEventListener('keydown', function (e) {
+      if (!e.target.closest || !e.target.closest('.hero-carousel-dots, .hero-carousel-arrow')) return;
+      if (e.key === 'ArrowRight') { go(1); }
+      else if (e.key === 'ArrowLeft') { go(-1); }
+    });
+    document.addEventListener('visibilitychange', function () {
+      paused.hidden = document.hidden;
+      syncPause();
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        paused.offscreen = !entries[entries.length - 1].isIntersecting;
+        syncPause();
+      }, { threshold: 0.2 }).observe(carousel);
+    }
 
     /* Touch swipe: horizontal drags past a small threshold commit to the
        next/previous slide, same as the arrow controls. Vertical scrolling
@@ -111,14 +187,14 @@
         var dx = e.clientX - startX;
         var dy = e.clientY - startY;
         if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
-          if (dx < 0) next(); else prev();
-          restart();
+          go(dx < 0 ? 1 : -1);
         }
       });
       track.addEventListener('pointercancel', function () { swipeId = null; });
     }
 
-    restart();
+    setLive();
+    schedule();
   });
 
   /* ---------------- Full-screen nav overlay ---------------- */
