@@ -263,212 +263,310 @@
 
 <main id="main">
 
-  <!-- PAGE HERO -->
-  <section class="hero-agro">
-    <div class="hero-agro-frame">
-      <img src="/assets/images/gallery/drone-demo-indoor-01.jpg" alt="Hands-on drone training demonstration for Phirez Training Academy trainees." loading="eager">
-      <div class="hero-agro-scrim"></div>
-      <div class="container">
-        <div class="hero-agro-content" data-aos>
-          <h1>Professional Practical <span class="text-accent">Geospatial Masterclasses</span></h1>
-          <p>Equip your surveyors, engineers, and GIS analysts with accredited hands-on competency. Combining classroom instruction with real-world field exercises using genuine Trimble, DJI, and Esri systems.</p>
-        </div>
-        <div class="hero-agro-badge">
-          <span class="stat-num">6</span>
-          <span class="stat-cap">Certified Courses — Blended Learning</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-agro-cards">
-      <a class="hero-agro-card" href="#course-rtk-gnss">
-        <span class="thumb"><img src="/assets/images/vendor-equipment/trimble-gnss-total-station-01.jpg" alt="" loading="lazy"></span>
-        <span class="info">
-          <h4>RTK GNSS Fieldwork</h4>
-          <p>3-day intensive course</p>
-          <span class="cta-outline">View Course</span>
-        </span>
-        <span class="go"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-      </a>
-      <a class="hero-agro-card reverse" href="#course-drone-lidar">
-        <span class="thumb"><img src="/assets/images/vendor-equipment/dji-drone-flight-01.jpg" alt="" loading="lazy"></span>
-        <span class="info">
-          <h4>Drone Pilot &amp; LiDAR</h4>
-          <p>4-day masterclass</p>
-          <span class="cta-fill">View Course<span class="arrow-circle"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span></span>
-        </span>
-      </a>
-    </div>
-    <div class="hero-agro-spacer"></div>
-  </section>
-
-  <!-- WHY TRAIN WITH PHIREZ (Optron Model) -->
-  <section class="section-dark" style="background:var(--navy-950); padding:80px 0;">
+  <!-- HERO -->
+  <section class="tr-hero" aria-labelledby="tr-hero-title">
     <div class="container">
-      <div class="two-col" style="align-items:center; gap:48px;">
+      <div class="tr-hero-grid">
         <div data-aos>
-          <h2>Field-Proven Competency, <span style="color:var(--optron-orange);">Zero Guesswork</span></h2>
-          <p class="body-lg" style="margin-top:18px; color:rgba(255,255,255,0.8);">Unlike generic theoretical workshops, Phirez Academy courses are led by practicing survey engineers and GIS architects who actively execute national-scale geodetic and drone mapping contracts across Uganda.</p>
-          <div style="display:flex; flex-direction:column; gap:16px; margin-top:28px;">
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div class="icon-wrap" style="width:36px; height:36px; border-radius:6px; background:rgba(143, 209, 79,0.15); color:var(--optron-orange); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="18" height="18"><use href="#i-check"/></svg></div>
-              <div><h4 style="color:#fff; font-size:1.0625rem;">Genuine Modern Hardware</h4><p style="color:var(--slate-300); font-size:0.875rem;">Train on real Trimble R12i GNSS, S-Series robotic total stations, and DJI Enterprise RTK drones.</p></div>
-            </div>
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div class="icon-wrap" style="width:36px; height:36px; border-radius:6px; background:rgba(143, 209, 79,0.15); color:var(--optron-orange); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="18" height="18"><use href="#i-check"/></svg></div>
-              <div><h4 style="color:#fff; font-size:1.0625rem;">Real Ugandan Datasets</h4><p style="color:var(--slate-300); font-size:0.875rem;">Work with local UTM projections, Arc 1960 transformation parameters, and real Ugandan terrain data.</p></div>
-            </div>
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div class="icon-wrap" style="width:36px; height:36px; border-radius:6px; background:rgba(143, 209, 79,0.15); color:var(--optron-orange); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="18" height="18"><use href="#i-check"/></svg></div>
-              <div><h4 style="color:#fff; font-size:1.0625rem;">Accredited Certificates</h4><p style="color:var(--slate-300); font-size:0.875rem;">Receive recognized certificates verifying hands-on practical competency upon course completion.</p></div>
+          <span class="tr-eyebrow">Phirez Training Academy</span>
+          <h1 id="tr-hero-title">Hands-on geospatial <span class="tr-accent">masterclasses</span>, taught in the field</h1>
+          <p class="tr-lede">Equip your surveyors, engineers and GIS analysts with certified, practical competency. Classroom instruction is paired with real field exercises on genuine Trimble, DJI and Esri systems.</p>
+          <div class="btn-group">
+            <a href="#programs" class="btn btn-orange">
+              <span>Explore Programs</span>
+              <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+            </a>
+            <a href="/contact/?action=training" class="btn btn-outline-white">
+              <span>Request Course Calendar</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="tr-hero-visual" data-aos data-aos-delay="120">
+          <div class="tr-hero-photo">
+            <img src="/assets/images/training/hero-field-training.webp" width="960" height="1152" alt="Trimble GNSS survey equipment being unpacked and demonstrated during a field training session overlooking Kampala." fetchpriority="high">
+          </div>
+          <div class="tr-float">
+            <span class="tr-float-icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
+            <div>
+              <strong>Train on genuine systems</strong>
+              <span>Trimble GNSS &amp; total stations, DJI Enterprise drones, Esri ArcGIS Pro</span>
             </div>
           </div>
         </div>
-        <div data-aos data-aos-delay="120">
-          <div style="border-radius:var(--radius-md); overflow:hidden; border:1px solid rgba(255,255,255,0.12); box-shadow:0 20px 45px rgba(0,0,0,0.5);">
-            <img src="/assets/images/gallery/thumbs/gnss-training-01.jpg" alt="Phirez trainers and trainees conducting practical GNSS RTK survey on the hills overlooking Kampala." style="width:100%; height:auto; display:block;" loading="lazy">
+      </div>
+
+      <div class="tr-facts" data-aos data-aos-delay="200">
+        <div class="tr-fact"><span class="tr-fact-num">6</span><span class="tr-fact-cap">Certified programs</span></div>
+        <div class="tr-fact"><span class="tr-fact-num">2&ndash;5</span><span class="tr-fact-cap">Days per program</span></div>
+        <div class="tr-fact"><span class="tr-fact-num">Kampala</span><span class="tr-fact-cap">Or delivered at your own site</span></div>
+        <div class="tr-fact"><span class="tr-fact-num">Blended</span><span class="tr-fact-cap">Classroom and field learning</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TRAIN WITH PHIREZ -->
+  <section class="tr-why" aria-labelledby="tr-why-title">
+    <div class="container">
+      <div class="tr-why-grid">
+        <div class="tr-why-media" data-aos>
+          <img src="/assets/images/training/why-field-team.webp" width="1200" height="900" alt="Survey team gathered around a GNSS rover for a topographic survey on an earthworks site." loading="lazy">
+          <span class="tr-why-tag">Real sites. Real instruments.</span>
+        </div>
+        <div class="tr-why-copy" data-aos data-aos-delay="100">
+          <span class="tr-eyebrow">Why train with Phirez</span>
+          <h2 id="tr-why-title">Field-proven competency, <span class="tr-accent">zero guesswork</span></h2>
+          <p>Unlike generic theoretical workshops, Phirez Academy courses are led by practicing survey engineers and GIS architects who actively execute national-scale geodetic and drone mapping contracts across Uganda.</p>
+          <div class="tr-pillars">
+            <div class="tr-pillar">
+              <span class="tr-pillar-num">01</span>
+              <div>
+                <h3>Genuine modern hardware</h3>
+                <p>Train on real Trimble R12i GNSS, S-Series robotic total stations, and DJI Enterprise RTK drones.</p>
+              </div>
+            </div>
+            <div class="tr-pillar">
+              <span class="tr-pillar-num">02</span>
+              <div>
+                <h3>Real Ugandan datasets</h3>
+                <p>Work with local UTM projections, Arc 1960 transformation parameters, and real Ugandan terrain data.</p>
+              </div>
+            </div>
+            <div class="tr-pillar">
+              <span class="tr-pillar-num">03</span>
+              <div>
+                <h3>Recognized certificates</h3>
+                <p>Receive certificates verifying hands-on practical competency upon course completion.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MASTERCLASS MODULES (Optron Course Format) -->
-  <section class="section-dark" style="background:#0A160F; padding:90px 0;">
+  <!-- PROGRAMS -->
+  <section class="section-dark tr-programs" id="programs" aria-labelledby="tr-programs-title">
     <div class="container">
-      <div style="text-align:center; max-width:760px; margin:0 auto 52px;" data-aos>
-        <h2>Core Masterclass <span style="color:var(--optron-orange);">Programs</span></h2>
-        <p style="color:rgba(255,255,255,0.78); font-size:1.0625rem; margin-top:12px;">Programs can be attended at our Kampala training center or customized as on-site corporate training for your staff.</p>
+      <div class="tr-programs-head" data-aos>
+        <div class="tr-section-head">
+          <span class="tr-eyebrow">Curriculum</span>
+          <h2 id="tr-programs-title">Core masterclass <span class="tr-accent">programs</span></h2>
+        </div>
+        <p>Attend at our Kampala training center, or have us deliver a customized on-site program for your staff. Every course blends classroom instruction with live field practice.</p>
       </div>
 
-      <div class="grid grid-3">
+      <div class="tr-grid">
 
-        <!-- Course 1 -->
-        <div class="brand-card-optron" id="course-rtk-gnss" data-aos>
-          <div>
-            <span class="brand-badge">3-Day Intensive</span>
+        <!-- 01 -->
+        <article class="tr-card" id="course-rtk-gnss" data-aos>
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-gnss.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">3-Day Intensive</span>
+            <span class="tr-card-index" aria-hidden="true">01</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">Survey &amp; Positioning</span>
             <h3>High-Precision RTK GNSS &amp; Total Station Operations</h3>
             <p>Master modern land survey workflows from static control networks to high-speed RTK stakeout using Trimble R12i receivers, S-Series robotic total stations, and Trimble Access.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; Base and rover radio/cellular NTRIP configuration</li>
-              <li>&bull; Site calibrations, local coordinate transformations &amp; geoids</li>
-              <li>&bull; Feature coding and linework creation in the field</li>
-              <li>&bull; Trauma troubleshooting and tilt compensation best practices</li>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Base and rover radio/cellular NTRIP configuration</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Site calibrations, local coordinate transformations &amp; geoids</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Feature coding and linework creation in the field</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Field troubleshooting and tilt compensation best practices</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kampala or on-site</span>
+              <a href="/contact/?course=gnss-total-stations" class="optron-link">
+                <span>Inquire About GNSS Course</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=gnss-total-stations" class="optron-link">
-            <span>Inquire About GNSS Course</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
-        <!-- Course 2 -->
-        <div class="brand-card-optron" id="course-drone-lidar" data-aos data-aos-delay="60">
-          <div>
-            <span class="brand-badge">4-Day Masterclass</span>
+        <!-- 02 -->
+        <article class="tr-card" id="course-drone-lidar" data-aos data-aos-delay="60">
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-drone-lidar.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">4-Day Masterclass</span>
+            <span class="tr-card-index" aria-hidden="true">02</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">Aerial Mapping &amp; LiDAR</span>
             <h3>Commercial Drone Pilot, Photogrammetry &amp; LiDAR</h3>
-            <p>From flight planning and airspace compliance to point cloud classification. Learn how to deploy DJI Enterprise drones (Matrice 350, Mavic 3E) to produce millimeter-grade terrain models.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; Mission planning: GSD calculation, overlap, RTK base setup</li>
-              <li>&bull; Aerial LiDAR point cloud processing with DJI Terra &amp; TBC</li>
-              <li>&bull; Ground Control Point (GCP) and checkpoint placement verification</li>
-              <li>&bull; Volume calculations, contour generation &amp; orthomosaic export</li>
+            <p>From flight planning and airspace compliance to point cloud classification. Learn how to deploy DJI Enterprise drones (Matrice 350, Mavic 3E) to produce survey-grade terrain models.</p>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Mission planning: GSD calculation, overlap, RTK base setup</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Aerial LiDAR point cloud processing with DJI Terra &amp; TBC</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Ground Control Point (GCP) and checkpoint placement verification</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Volume calculations, contour generation &amp; orthomosaic export</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kampala or on-site</span>
+              <a href="/contact/?course=drone-lidar" class="optron-link">
+                <span>Inquire About Drone Course</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=drone-lidar" class="optron-link">
-            <span>Inquire About Drone Course</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
-        <!-- Course 3 -->
-        <div class="brand-card-optron" data-aos data-aos-delay="120">
-          <div>
-            <span class="brand-badge">5-Day Professional</span>
+        <!-- 03 -->
+        <article class="tr-card" id="course-arcgis-pro" data-aos data-aos-delay="120">
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-arcgis.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">5-Day Professional</span>
+            <span class="tr-card-index" aria-hidden="true">03</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">GIS &amp; Spatial Analysis</span>
             <h3>Esri ArcGIS Pro Advanced Spatial Analysis &amp; SDI</h3>
             <p>An exhaustive masterclass in ArcGIS Pro: multi-user geodatabase management, advanced spatial statistics, model builder automation, and spatial data infrastructure architecture.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; Advanced geoprocessing, raster analytics &amp; hydrological modeling</li>
-              <li>&bull; Enterprise geodatabase topology and schema design</li>
-              <li>&bull; Web map publishing and dashboard configuration on ArcGIS Online</li>
-              <li>&bull; Python ArcPy scripting for recurring GIS tasks</li>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Advanced geoprocessing, raster analytics &amp; hydrological modeling</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Enterprise geodatabase topology and schema design</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Web map publishing and dashboard configuration on ArcGIS Online</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Python ArcPy scripting for recurring GIS tasks</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kampala or on-site</span>
+              <a href="/contact/?course=arcgis-pro" class="optron-link">
+                <span>Inquire About ArcGIS Course</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=arcgis-pro" class="optron-link">
-            <span>Inquire About ArcGIS Course</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
-        <!-- Course 4 -->
-        <div class="brand-card-optron" data-aos>
-          <div>
-            <span class="brand-badge">3-Day Practical</span>
+        <!-- 04 -->
+        <article class="tr-card" id="course-civil-3d" data-aos>
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-civil3d.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">3-Day Practical</span>
+            <span class="tr-card-index" aria-hidden="true">04</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">Engineering Design</span>
             <h3>AutoCAD Civil 3D &amp; Survey Data Integration</h3>
             <p>Connect field survey data directly to engineering civil design. Learn to import raw survey points, create dynamic surfaces, model road corridors, and compute earthwork volumes.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; Survey database setup and description key management</li>
-              <li>&bull; TIN surface creation, breakline editing &amp; boundary enforcement</li>
-              <li>&bull; Road horizontal/vertical alignment and corridor profiling</li>
-              <li>&bull; Automated cut/fill cross-section volume calculations</li>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Survey database setup and description key management</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>TIN surface creation, breakline editing &amp; boundary enforcement</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Road horizontal/vertical alignment and corridor profiling</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Automated cut/fill cross-section volume calculations</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kampala or on-site</span>
+              <a href="/contact/?course=civil-3d" class="optron-link">
+                <span>Inquire About Civil 3D</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=civil-3d" class="optron-link">
-            <span>Inquire About Civil 3D</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
-        <!-- Course 5 -->
-        <div class="brand-card-optron" data-aos data-aos-delay="60">
-          <div>
-            <span class="brand-badge">2-Day Workshop</span>
+        <!-- 05 -->
+        <article class="tr-card" id="course-mobile-gis" data-aos data-aos-delay="60">
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-mobile-gis.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">2-Day Workshop</span>
+            <span class="tr-card-index" aria-hidden="true">05</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">Field Data Collection</span>
             <h3>Mobile Data Collection with Field Maps &amp; Survey123</h3>
             <p>Design and deploy smart offline survey forms with logic, photo attachments, and high-accuracy GPS integration to streamline field data collection across large remote teams.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; XLSForm syntax scripting with dynamic skip logic &amp; validation</li>
-              <li>&bull; Offline basemap caching and synchronization protocols</li>
-              <li>&bull; Bluetooth pairing with external Trimble GNSS receivers</li>
-              <li>&bull; Real-time executive dashboard generation</li>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>XLSForm syntax scripting with dynamic skip logic &amp; validation</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Offline basemap caching and synchronization protocols</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Bluetooth pairing with external Trimble GNSS receivers</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Real-time executive dashboard generation</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Kampala or on-site</span>
+              <a href="/contact/?course=mobile-gis" class="optron-link">
+                <span>Inquire About Mobile GIS</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=mobile-gis" class="optron-link">
-            <span>Inquire About Mobile GIS</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
-        <!-- Course 6 -->
-        <div class="brand-card-optron" data-aos data-aos-delay="120">
-          <div>
-            <span class="brand-badge">Custom Corporate</span>
+        <!-- 06 -->
+        <article class="tr-card is-custom" id="course-corporate" data-aos data-aos-delay="120">
+          <div class="tr-card-media">
+            <img src="/assets/images/training/course-corporate.webp" width="960" height="600" alt="" loading="lazy">
+            <span class="tr-card-pill">Custom Corporate</span>
+            <span class="tr-card-index" aria-hidden="true">06</span>
+          </div>
+          <div class="tr-card-body">
+            <span class="tr-card-kicker">Corporate Capacity Building</span>
             <h3>Tailored In-House Corporate Capacity Building</h3>
             <p>We build a bespoke curriculum aligned directly with your organization's projects, existing equipment, software licenses, and specific operational challenges.</p>
-            <ul style="font-size:0.8125rem; color:var(--slate-400); display:flex; flex-direction:column; gap:6px; margin-bottom:20px;">
-              <li>&bull; Delivered at your headquarters, field base camp, or our Kampala lab</li>
-              <li>&bull; Customized course schedule fitted to operational shifts</li>
-              <li>&bull; Practical exercises conducted on your active project sites</li>
-              <li>&bull; Post-training assessment and ongoing HelpDesk support</li>
+            <ul class="tr-card-list">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Delivered at your headquarters, field base camp, or our Kampala lab</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Customized course schedule fitted to operational shifts</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Practical exercises conducted on your active project sites</span></li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Post-training assessment and ongoing HelpDesk support</span></li>
             </ul>
+            <div class="tr-card-foot">
+              <span class="tr-card-where"><svg aria-hidden="true"><use href="#i-pin"/></svg>Your site or our Kampala lab</span>
+              <a href="/contact/?course=corporate-tailored" class="optron-link">
+                <span>Request Corporate Proposal</span>
+                <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
           </div>
-          <a href="/contact/?course=corporate-tailored" class="optron-link">
-            <span>Request Corporate Proposal</span>
-            <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
-          </a>
-        </div>
+        </article>
 
       </div>
     </div>
   </section>
 
-  <!-- REGISTRATION CTA BAND -->
-  <section class="section-dark" style="background:var(--navy-950); padding:80px 0;">
+  <!-- HOW IT WORKS -->
+  <section class="tr-process" aria-labelledby="tr-process-title">
     <div class="container">
-      <div class="cta-band" style="background:linear-gradient(135deg, #1c3527 0%, #101d15 100%); border:1px solid rgba(143, 209, 79, 0.4); border-radius:var(--radius-lg); padding:60px 48px;" data-aos>
-        <div style="max-width:700px;">
-          <h2 style="font-size:clamp(1.75rem, 3.2vw, 2.4rem); margin-bottom:14px;">Enroll Your Team In An Upcoming Session</h2>
-          <p style="color:rgba(255,255,255,0.8); font-size:1.0625rem;">Contact our Academy Coordinator to receive the latest course calendar, syllabus details, group registration discounts, or to schedule a customized on-site training.</p>
+      <div class="tr-section-head is-center" data-aos>
+        <span class="tr-eyebrow">How it works</span>
+        <h2 id="tr-process-title">From first enquiry to <span class="tr-accent">certified competency</span></h2>
+        <p>A simple path for individuals and teams alike.</p>
+      </div>
+      <div class="tr-steps">
+        <div class="tr-step" data-aos>
+          <span class="tr-step-num" aria-hidden="true">1</span>
+          <h3>Enquire</h3>
+          <p>Tell us who needs training. We send the latest course calendar, syllabus details, and group registration discounts.</p>
         </div>
-        <div class="btn-group" style="align-self:center;">
+        <div class="tr-step" data-aos data-aos-delay="80">
+          <span class="tr-step-num" aria-hidden="true">2</span>
+          <h3>Choose your setting</h3>
+          <p>Attend at our Kampala training center, or have us deliver on-site at your headquarters or field base camp.</p>
+        </div>
+        <div class="tr-step" data-aos data-aos-delay="160">
+          <span class="tr-step-num" aria-hidden="true">3</span>
+          <h3>Learn by doing</h3>
+          <p>Classroom instruction paired with field exercises on genuine equipment, led by practicing engineers.</p>
+        </div>
+        <div class="tr-step is-final" data-aos data-aos-delay="240">
+          <span class="tr-step-num" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+          <h3>Get certified</h3>
+          <p>Leave with a recognized certificate verifying your hands-on practical competency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION CTA -->
+  <section class="tr-cta-section" aria-labelledby="tr-cta-title">
+    <div class="container">
+      <div class="tr-cta" data-aos>
+        <div class="tr-cta-copy">
+          <span class="tr-eyebrow">Enroll today</span>
+          <h2 id="tr-cta-title">Enroll your team in an upcoming session</h2>
+          <p>Contact our Academy Coordinator to receive the latest course calendar, syllabus details, group registration discounts, or to schedule a customized on-site training.</p>
+        </div>
+        <div class="tr-cta-side">
           <a href="/contact/?action=training" class="btn btn-orange">
             <span>Inquire About Courses</span>
             <span class="hover-arrow" aria-hidden="true"><svg class="arrow-1" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><svg class="arrow-2" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></span>
@@ -476,6 +574,10 @@
           <a href="tel:+256783549770" class="btn btn-outline-white">
             <span>Call: +256 783 549 770</span>
           </a>
+          <div class="tr-cta-contacts">
+            <a href="mailto:info@phirez.ug"><svg aria-hidden="true"><use href="#i-mail"/></svg>info@phirez.ug</a>
+            <span><svg aria-hidden="true"><use href="#i-pin"/></svg>2nd Floor, Unicalo House, Plot 11, Archer Road, Kampala</span>
+          </div>
         </div>
       </div>
     </div>
