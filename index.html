@@ -326,9 +326,47 @@
 <main id="main">
 
   <!-- HERO SECTION (Agrone-style rounded frame + floating badge/cards) -->
-  <section class="hero-agro" style="background:#0A160F;">
-    <div class="hero-agro-frame">
-      <img src="/assets/images/gallery/0fa4feff3ac8fbbb9f6e7b3404178fb6.jpg" alt="DJI Enterprise drone controller staged in the field before a mapping flight." loading="eager">
+  <section class="hero-agro hero-agro-rotator" data-hero-carousel data-interval="6500" style="background:#0A160F;">
+    <div class="hero-agro-frame hero-agro-frame-product">
+      <!-- Rotating product slides: each one is a pair of transparent cut-outs on the
+           glowing stage, same treatment as the Trimble / Nikon / IBM page heroes. -->
+      <div class="hero-product-slides">
+        <div class="hero-product-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 5: Trimble" style="--hp-front-h:96%; --hp-back-h:80%;">
+          <div class="hero-product-stage">
+            <img class="hp-back" src="/assets/images/vendor-equipment/trimble-mx90-product-01.webp" alt="Trimble MX90 mobile mapping sensor." width="810" height="813" loading="eager">
+            <img class="hp-front" src="/assets/images/vendor-equipment/trimble-x9-product-01.webp" alt="Trimble X9 3D laser scanning total station." width="608" height="813" loading="eager">
+          </div>
+          <div class="hero-product-caption"><a href="/trimble/"><b>Trimble</b> X9 scanner &amp; MX90 mobile mapping <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="hero-product-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: DJI Enterprise" style="--hp-front-h:40%; --hp-back-h:72%;">
+          <div class="hero-product-stage">
+            <img class="hp-back" src="/assets/images/vendor-equipment/dji-dock-3-hero-01.webp" alt="DJI Dock 3 automated drone dock." width="615" height="534" loading="lazy">
+            <img class="hp-front" src="/assets/images/vendor-equipment/dji-matrice-350-rtk-hero-01.webp" alt="DJI Matrice 350 RTK enterprise drone." width="439" height="216" loading="lazy">
+          </div>
+          <div class="hero-product-caption"><a href="/dji-enterprise/"><b>DJI Enterprise</b> Dock 3 &amp; Matrice 350 RTK <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="hero-product-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Spectra Geospatial" style="--hp-front-h:100%; --hp-back-h:92%;">
+          <div class="hero-product-stage">
+            <img class="hp-back" src="/assets/images/vendor-equipment/spectra-focus50-product-02.avif" alt="Spectra Geospatial Focus 50 robotic total station." width="433" height="803" loading="lazy">
+            <img class="hp-front" src="/assets/images/vendor-equipment/spectra-sp100-product-01.avif" alt="Spectra Geospatial SP100 GNSS receiver on a pole." width="408" height="799" loading="lazy">
+          </div>
+          <div class="hero-product-caption"><a href="/spectra-geospatial/"><b>Spectra Geospatial</b> Focus 50 &amp; SP100 GNSS <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="hero-product-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Nikon" style="--hp-front-h:96%; --hp-back-h:62%;">
+          <div class="hero-product-stage">
+            <img class="hp-back" src="/assets/images/vendor-equipment/nikon-ac2s-hero-01.webp" alt="Nikon AC-2S automatic level." width="700" height="603" loading="lazy">
+            <img class="hp-front" src="/assets/images/vendor-equipment/nikon-ne100-hero-01.webp" alt="Nikon NE-100 digital theodolite." width="356" height="699" loading="lazy">
+          </div>
+          <div class="hero-product-caption"><a href="/nikon/"><b>Nikon</b> NE-100 theodolite &amp; AC-2S level <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+        <div class="hero-product-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: IBM" style="--hp-front-h:100%; --hp-back-h:88%;">
+          <div class="hero-product-stage">
+            <img class="hp-back" src="/assets/images/vendor-equipment/ibm-ts7700-product-02.png" alt="IBM TS7700 virtual tape system." width="405" height="658" loading="lazy">
+            <img class="hp-front" src="/assets/images/vendor-equipment/ibm-ts4500-product-02.png" alt="IBM TS4500 enterprise tape library." width="355" height="785" loading="lazy">
+          </div>
+          <div class="hero-product-caption"><a href="/ibm-tape/"><b>IBM</b> TS4500 &amp; TS7700 tape systems <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+      </div>
       <div class="hero-agro-scrim"></div>
       <div class="container">
         <div class="hero-agro-content" data-aos>
@@ -355,6 +393,11 @@
           <span class="stat-num">15+</span>
           <span class="stat-cap">Years in Geospatial &amp; IT Solutions</span>
         </div>
+      </div>
+      <div class="hero-rotator-ui">
+        <button type="button" class="hero-carousel-arrow prev" aria-label="Previous product"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button>
+        <div class="hero-carousel-dots"></div>
+        <button type="button" class="hero-carousel-arrow next" aria-label="Next product"><svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></button>
       </div>
     </div>
     <div class="hero-agro-cards">

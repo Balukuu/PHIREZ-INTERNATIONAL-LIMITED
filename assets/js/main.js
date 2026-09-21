@@ -52,7 +52,7 @@
      enhanced: with JS disabled the first slide (.is-active in the markup) is the
      only one visible, so the hero still reads correctly. */
   document.querySelectorAll('[data-hero-carousel]').forEach(function (carousel) {
-    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide'));
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-carousel-slide, .hero-product-slide'));
     if (slides.length < 2) return;
     var dotsWrap = carousel.querySelector('.hero-carousel-dots');
     var dots = slides.map(function (_, i) {
@@ -95,7 +95,7 @@
     /* Touch swipe: horizontal drags past a small threshold commit to the
        next/previous slide, same as the arrow controls. Vertical scrolling
        is left alone (no preventDefault), so a swipe never hijacks the page. */
-    var track = carousel.querySelector('.hero-carousel-track');
+    var track = carousel.querySelector('.hero-carousel-track, .hero-agro-frame');
     if (track && window.PointerEvent) {
       var swipeId = null, startX = 0, startY = 0;
       var SWIPE_THRESHOLD = 40;
