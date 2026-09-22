@@ -247,7 +247,7 @@ button:hover .hover-arrow .arrow-2 {
   padding: 6px 0;
   background: rgba(246, 241, 230, 0.92);
   border: 1px solid rgba(19, 36, 27, 0.08);
-  border-radius: var(--radius-lg);
+  border-radius: 14px;
   box-shadow: var(--shadow-lift);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
