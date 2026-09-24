@@ -618,7 +618,7 @@ html:not(.js) .marquee-track { animation: none; }
   font-size: 0.9375rem; color: var(--navy-950); background: var(--white);
   transition: border-color 0.2s;
 }
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--brand-blue); outline: none; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--brand-blue); }
 .form-field .error-msg { color: #C0392B; font-size: 0.8125rem; display: none; }
 .form-field.has-error input, .form-field.has-error select, .form-field.has-error textarea { border-color: #C0392B; }
 .form-field.has-error .error-msg { display: block; }
@@ -1735,6 +1735,29 @@ html:not(.js) .gallery-zoom { display: none; }
 }
 @media (max-width: 900px) {
   .hero-agro-frame .hero-product-stage { display: none; }
+}
+
+/* ---------- Software-suite hero: same dark glowing stage as the product hero,
+   but for vendors with no product photography (e.g. Autodesk) — a grid of
+   icon tiles standing in for the product-cutout imagery. ---------- */
+.hero-agro-frame-suite {
+  display: flex; align-items: center;
+}
+.hero-suite-grid { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; width: 100%; }
+.hero-suite-grid .hero-agro-content { flex: 1 1 420px; padding: 40px 0; }
+.hero-suite-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; flex: 0 1 420px; width: 100%; max-width: 420px; }
+.hero-suite-tile {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-md); padding: 18px 16px;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.hero-suite-tile:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.28); transform: translateY(-3px); }
+.hero-suite-tile .icon-tile { background: var(--optron-orange); }
+.hero-suite-tile span { font-size: 0.875rem; font-weight: 700; color: var(--white); letter-spacing: 0.01em; line-height: 1.3; }
+@media (max-width: 640px) {
+  .hero-suite-grid .hero-agro-content { padding-bottom: 0; }
+  .hero-suite-tiles { max-width: none; }
 }
 
 /* ---------- Rotating product hero (homepage): the product-stage hero stacked as
